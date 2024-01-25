@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace bromo
         {
             InitializeComponent();
         }
+        private SqlConnection conn = new SqlConnection(@"Data Source=.;Initial Catalog=BromoAirlines;Integrated Security=True");
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -35,6 +37,76 @@ namespace bromo
             Login login = new Login(); 
             this.Hide();
             login.Show();
+        }
+
+        private void textBox_username_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if( e.KeyChar == (char)Keys.Enter )
+            {
+                textBox_name.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                tanggal_lahir.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void tanggal_lahir_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                textBox_noTelp.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_noTelp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                textBox_password.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                button_daftar.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void button_daftar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string getUsername = "select * from Akun where Username = '" + textBox_username.Text+ "'";
+                SqlDataAdapter data_user = new SqlDataAdapter(getUsername,conn);
+
+                DataTable dt_user = new DataTable();
+                data_user.Fill(dt_user);
+                if (dt_user.Rows.Count > 0)
+                {
+                    MessageBox.Show("Username telah dipakai","Warning",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    textBox_username.Focus();
+                }
+
+
+            } catch
+            {
+
+            } finally
+            {
+                conn.Close();
+            }
         }
     }
 }
