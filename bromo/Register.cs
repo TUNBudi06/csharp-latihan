@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,12 +114,17 @@ namespace bromo
                     textBox_name.Focus();
                 }
 
-                if(string.IsNullOrEmpty(tanggal_lahir.Text))
+                // logic of tanggal_lahir
+                // add .date for filter only date can go throught without time
+                // and convert to string to filter time
+                string dt = tanggal_lahir.Value.Date.ToString("yyyy-M-d");
+                string dt_now = DateTime.Now.Date.ToString("yyyy-M-d");
+
+                if (dt.Equals(dt_now))
                 {
-
+                    MessageBox.Show("Masukkan tanggal lahir anda", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tanggal_lahir.Focus();
                 }
-
-
             } catch
             {
 
