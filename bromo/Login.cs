@@ -61,8 +61,8 @@ namespace bromo
         {
             Register register = new Register();
             this.Hide();
-            register.Show();
-            this.Close();
+            register.ShowDialog();
+            this.ShowDialog();
         }
 
         private void button_login_Click(object sender, EventArgs e)

@@ -36,7 +36,7 @@ namespace bromo
         {
             Login login = new Login(); 
             this.Hide();
-            login.Show();
+            login.ShowDialog();
         }
 
         private void textBox_username_KeyPress(object sender, KeyPressEventArgs e)
@@ -88,15 +88,34 @@ namespace bromo
         {
             try
             {
-                string getUsername = "select * from Akun where Username = '" + textBox_username.Text+ "'";
-                SqlDataAdapter data_user = new SqlDataAdapter(getUsername,conn);
+                //logic of username
+                if(!string.IsNullOrEmpty(textBox_username.Text)) {
+                    string getUsername = "select * from Akun where Username = '" + textBox_username.Text + "'";
+                    SqlDataAdapter data_user = new SqlDataAdapter(getUsername, conn);
 
-                DataTable dt_user = new DataTable();
-                data_user.Fill(dt_user);
-                if (dt_user.Rows.Count > 0)
+                    DataTable dt_user = new DataTable();
+                    data_user.Fill(dt_user);
+                    if (dt_user.Rows.Count > 0)
+                    {
+                        MessageBox.Show("Username telah dipakai", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBox_username.Focus();
+                    }
+                } else
                 {
-                    MessageBox.Show("Username telah dipakai","Warning",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Username tidak boleh kosong","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     textBox_username.Focus();
+                }
+
+                //logik of nama
+                if(string.IsNullOrEmpty(textBox_name.Text))
+                {
+                    MessageBox.Show("Nama tidak boleh kosong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox_name.Focus();
+                }
+
+                if(string.IsNullOrEmpty(tanggal_lahir.Text))
+                {
+
                 }
 
 
