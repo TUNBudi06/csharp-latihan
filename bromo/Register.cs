@@ -18,7 +18,7 @@ namespace bromo
         {
             InitializeComponent();
         }
-        private SqlConnection conn = new SqlConnection(@"Data Source=.;Initial Catalog=BromoAirlines;Integrated Security=True");
+        private SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=BromoAirlines;Integrated Security=True;");
 
         private void label2_Click(object sender, EventArgs e)
         {

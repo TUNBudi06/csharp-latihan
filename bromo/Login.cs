@@ -17,7 +17,7 @@ namespace bromo
         {
             InitializeComponent();
         }
-        private SqlConnection conn =  new SqlConnection(@"Data Source=.;Initial Catalog=BromoAirlines;Integrated Security=True");
+        private SqlConnection conn =  new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=BromoAirlines;Integrated Security=True;");
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -80,10 +80,10 @@ namespace bromo
                     string username = textBox_username.Text;
                     string password = textBox_password.Text;
                     
-                    main mainForm = new main();
+                    customerForm mainForm = new customerForm();
                     this.Hide();
-                    mainForm.Show();
-                    this.Close();
+                    mainForm.ShowDialog();
+                    this.ShowDialog();
                 } else
                 {
                     MessageBox.Show("Password and Username tidak cocok", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

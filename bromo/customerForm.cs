@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace bromo
 {
-    public partial class main : Form
+    public partial class customerForm : Form
     {
-        public main()
+        public customerForm()
         {
             InitializeComponent();
+        }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
