@@ -17,7 +17,7 @@ namespace bromo
         {
             InitializeComponent();
         }
-        private SqlConnection conn =  new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=BromoAirlines;Integrated Security=True;");
+        private SqlConnection conn =  new SqlConnection(@"Data Source=TUNBUDI06\SQLEXPRESS;Initial Catalog=BromoAirlines;Integrated Security=True;Encrypt=False");
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -62,7 +62,7 @@ namespace bromo
             Register register = new Register();
             this.Hide();
             register.ShowDialog();
-            this.ShowDialog();
+            this.Show();
         }
 
         private void button_login_Click(object sender, EventArgs e)

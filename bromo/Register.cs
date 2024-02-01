@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -18,8 +19,7 @@ namespace bromo
         {
             InitializeComponent();
         }
-        private SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=BromoAirlines;Integrated Security=True;");
-
+        Utils conn = new Utils();
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -107,16 +107,22 @@ namespace bromo
                 //logic of username
                 if (!string.IsNullOrEmpty(textBox_username.Text))
                 {
-                    string getUsername = "select * from Akun where Username = '" + textBox_username.Text + "'";
-                    SqlDataAdapter data_user = new SqlDataAdapter(getUsername, conn);
+                    string getUsername = "select * from Akun where Username = @username";
+                    SqlParameter[] sqlParameter = new SqlParameter[] 
+                    { 
+                        new SqlParameter("username", textBox_username.Text)
+                    };
+
+                    SqlDataAdapter sqldata = conn.sqlselect(getUsername,sqlParameter); 
 
                     DataTable dt_user = new DataTable();
-                    data_user.Fill(dt_user);
+                    sqldata.Fill(dt_user);
                     if (dt_user.Rows.Count > 0)
                     {
                         MessageBox.Show("Username telah dipakai", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBox_username.Focus();
-                    } else
+                    }
+                    else
                     {
                         //logik of nama
                         if (string.IsNullOrEmpty(textBox_name.Text))
@@ -129,8 +135,8 @@ namespace bromo
                             // logic of tanggal_lahir
                             // add .date for filter only date can go throught without time
                             // and convert to string to filter time
-                            string dt = tanggal_lahir.Value.Date.ToString("yyyy-MM-dd");
-                            string dt_now = DateTime.Now.Date.ToString("yyyy-MM-dd");
+                            DateTime dt = tanggal_lahir.Value.Date;
+                            DateTime dt_now = DateTime.Now.Date;
 
                             if (dt.Equals(dt_now))
                             {
@@ -138,35 +144,55 @@ namespace bromo
                                 tanggal_lahir.Focus();
                                 //Console.WriteLine(dt);
                             }
-                            else
+                            else if (DateTime.Compare(dt,dt_now)>0)
                             {
-                                // logic of number telephone
-                                if (string.IsNullOrEmpty(textBox_noTelp.Text))
+                                MessageBox.Show("Masukkan tanggal lahir anda dengan benar", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                tanggal_lahir.Focus();
+                            } 
+                            else 
+                            {
+                                // Check for password
+                                    Console.WriteLine("testing");
+                                if (string.IsNullOrEmpty(textBox_password.Text))
                                 {
-                                    MessageBox.Show("nomor telepon tidak boleh kosong", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    textBox_noTelp.Focus();
+                                    MessageBox.Show("Password tidak boleh kosong", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    textBox_password.Focus();
+                                }
+                                else if (textBox_password.Text.Length < 8)
+                                {
+                                    MessageBox.Show("Panjang password tidak boleh kurang dari 8 karakter", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    textBox_password.Focus();
                                 }
                                 else
                                 {
-                                    if(textBox_noTelp.Text.Length < 10)
+                                    // Insert into Akun table
+                                    string queue = "INSERT INTO Akun(Username, Password, nama, TanggalLahir, Nomortelepon, merupakanAdmin) VALUES (@username, @password, @nama, @tglLahir, @nomorTelepon, 0)";
+
+                                    SqlParameter[] parameters = new SqlParameter[]
                                     {
-                                        MessageBox.Show("Masukkan nomor handphone anda dengan benar", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        textBox_noTelp.Focus();
-                                    } else
+                            new SqlParameter("@username", textBox_username.Text),
+                            new SqlParameter("@password", textBox_password.Text),
+                            new SqlParameter("@nama", textBox_name.Text),
+                            new SqlParameter("@tglLahir", dt),
+                            new SqlParameter("@nomorTelepon", textBox_noTelp.Text)
+                                    };
+
+                                    using (SqlCommand cmd = conn.sqlinsert(queue, parameters))
                                     {
-                                        //logic password
-                                        if (string.IsNullOrEmpty(textBox_password.Text))
+                                        int result = cmd.ExecuteNonQuery();
+
+                                        Debug.WriteLine(result.ToString());
+
+                                        if (result < 1)
                                         {
-                                            MessageBox.Show("password tidak boleh kosong", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                            textBox_password.Focus();
+                                            MessageBox.Show("Registrasi gagal, silahkan coba lagi", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         }
                                         else
                                         {
-                                            if (textBox_password.Text.Length < 8)
-                                            {
-                                                MessageBox.Show("panjang password tidak boleh kurang dari 8 karakter", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                textBox_password.Focus();
-                                            }
+                                            customerForm cform = new customerForm();
+                                            this.Hide();
+                                            cform.ShowDialog();
+                                            this.Close();
                                         }
                                     }
                                 }
@@ -183,9 +209,6 @@ namespace bromo
             } catch
             {
 
-            } finally
-            {
-                conn.Close();
             }
         }
     }

@@ -51,6 +51,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BromoAirlinesDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
     <Compile Include="customerForm.cs">
       <SubType>Form</SubType>
     </Compile>
