@@ -78,15 +78,27 @@ namespace bromo
                 DataTable dt_user = new DataTable();
                 run.Fill(dt_user);
                 
-                if( dt_user.Rows.Count > 0 )
+                if( dt_user.Rows.Count == 1 )
                 {
                     string username = textBox_username.Text;
                     string password = textBox_password.Text;
-                    
-                    customerForm mainForm = new customerForm();
-                    this.Hide();
-                    mainForm.ShowDialog();
-                    this.ShowDialog();
+                    DataRow dt_user_row = dt_user.Rows[0];
+                    Console.WriteLine("1");
+                    int admin = Convert.ToInt32(dt_user_row["MerupakanAdmin"]);
+                    Console.WriteLine("2");
+
+                    if ( admin == 0  )
+                    {
+                        customerForm cform = new customerForm();
+                        this.Hide();
+                        cform.ShowDialog();
+                        this.ShowDialog();
+                    } else
+                    {
+                        adminform aform = new adminform();
+                        this.Hide(); aform.ShowDialog();
+                        this.Show();
+                    }
                 } else
                 {
                     MessageBox.Show("Password and Username tidak cocok", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -51,6 +51,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BromoAirlinesDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="adminform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminform.Designer.cs">
+      <DependentUpon>adminform.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="customerForm.cs">
       <SubType>Form</SubType>
@@ -72,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="adminform.resx">
+      <DependentUpon>adminform.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

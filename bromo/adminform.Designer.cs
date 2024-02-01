@@ -1,6 +1,6 @@
 ﻿namespace bromo
 {
-    partial class customerForm
+    partial class adminform
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // customerForm
+            // adminform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "customerForm";
-            this.Text = "Bromo AirLines - Customer";
-            this.Load += new System.EventHandler(this.main_Load);
+            this.ClientSize = new System.Drawing.Size(981, 584);
+            this.Name = "adminform";
+            this.Text = "Bromo Airlines - Admin";
             this.ResumeLayout(false);
 
         }
