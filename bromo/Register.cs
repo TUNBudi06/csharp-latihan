@@ -113,10 +113,19 @@ namespace bromo
                         new SqlParameter("username", textBox_username.Text)
                     };
 
-                    SqlDataAdapter sqldata = conn.sqlselect(getUsername,sqlParameter); 
+                    //SqlDataAdapter sqldata = conn.sqlselect(getUsername,sqlParameter); 
+                    SqlCommand cmd = conn.koneksi().CreateCommand();
+
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = getUsername;
+                    cmd.Parameters.AddRange(sqlParameter);
+                    //Console.WriteLine(cmd.ToString());
+
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    adapter.SelectCommand = cmd;
 
                     DataTable dt_user = new DataTable();
-                    sqldata.Fill(dt_user);
+                    adapter.Fill(dt_user);
                     if (dt_user.Rows.Count > 0)
                     {
                         MessageBox.Show("Username telah dipakai", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -124,76 +133,87 @@ namespace bromo
                     }
                     else
                     {
-                        //logik of nama
                         if (string.IsNullOrEmpty(textBox_name.Text))
                         {
-                            MessageBox.Show("Nama tidak boleh kosong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            textBox_name.Focus();
+                            MessageBox.Show("Kolom nama tidak boleh kosong", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
                             // logic of tanggal_lahir
                             // add .date for filter only date can go throught without time
                             // and convert to string to filter time
-                            DateTime dt = tanggal_lahir.Value.Date;
                             DateTime dt_now = DateTime.Now.Date;
-
-                            if (dt.Equals(dt_now))
+                            //Console.WriteLine("test");
+                            DateTime dt = tanggal_lahir.Value.Date;
+                            if (DateTime.Compare(dt, dt_now) == 0)
                             {
                                 MessageBox.Show("Masukkan tanggal lahir anda", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 tanggal_lahir.Focus();
                                 //Console.WriteLine(dt);
                             }
-                            else if (DateTime.Compare(dt,dt_now)>0)
+                            else if (DateTime.Compare(dt, dt_now) > 0)
                             {
                                 MessageBox.Show("Masukkan tanggal lahir anda dengan benar", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 tanggal_lahir.Focus();
-                            } 
-                            else 
+                            }
+                            else
                             {
-                                // Check for password
-                                    Console.WriteLine("testing");
-                                if (string.IsNullOrEmpty(textBox_password.Text))
+                                if (string.IsNullOrEmpty(textBox_noTelp.Text))
                                 {
-                                    MessageBox.Show("Password tidak boleh kosong", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    textBox_password.Focus();
+                                    MessageBox.Show("nomor telepon tidak boleh kosong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    textBox_noTelp.Focus();
                                 }
-                                else if (textBox_password.Text.Length < 8)
+                                else if (textBox_noTelp.Text.Length < 10)
                                 {
-                                    MessageBox.Show("Panjang password tidak boleh kurang dari 8 karakter", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    textBox_password.Focus();
+                                    MessageBox.Show("Masukkan nomor telepon anda dengan benar", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    textBox_noTelp.Focus();
                                 }
                                 else
                                 {
-                                    // Insert into Akun table
-                                    string queue = "INSERT INTO Akun(Username, Password, nama, TanggalLahir, Nomortelepon, merupakanAdmin) VALUES (@username, @password, @nama, @tglLahir, @nomorTelepon, 0)";
-
-                                    SqlParameter[] parameters = new SqlParameter[]
+                                    // Check for password
+                                    Console.WriteLine("testing");
+                                    if (string.IsNullOrEmpty(textBox_password.Text))
                                     {
-                            new SqlParameter("@username", textBox_username.Text),
-                            new SqlParameter("@password", textBox_password.Text),
-                            new SqlParameter("@nama", textBox_name.Text),
-                            new SqlParameter("@tglLahir", dt),
-                            new SqlParameter("@nomorTelepon", textBox_noTelp.Text)
-                                    };
-
-                                    using (SqlCommand cmd = conn.sqlinsert(queue, parameters))
+                                        MessageBox.Show("Password tidak boleh kosong", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        textBox_password.Focus();
+                                    }
+                                    else if (textBox_password.Text.Length < 8)
                                     {
-                                        int result = cmd.ExecuteNonQuery();
+                                        MessageBox.Show("Panjang password tidak boleh kurang dari 8 karakter", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        textBox_password.Focus();
+                                    }
+                                    else
+                                    {
+                                        // Insert into Akun table
+                                        string queue = "INSERT INTO Akun(Username, Password, nama, TanggalLahir, Nomortelepon, merupakanAdmin) VALUES (@username, @password, @nama, @tglLahir, @nomorTelepon, 0)";
 
-                                        Debug.WriteLine(result.ToString());
+                                        SqlParameter[] parameters = new SqlParameter[]
+                                        {
+                                        new SqlParameter("@username", textBox_username.Text),
+                                        new SqlParameter("@password", textBox_password.Text),
+                                        new SqlParameter("@nama", textBox_name.Text),
+                                        new SqlParameter("@tglLahir", dt.ToString("yyyy-MM-dd")),
+                                        new SqlParameter("@nomorTelepon", textBox_noTelp.Text)
+                                        };
 
-                                        if (result < 1)
-                                        {
-                                            MessageBox.Show("Registrasi gagal, silahkan coba lagi", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        }
-                                        else
-                                        {
-                                            customerForm cform = new customerForm();
-                                            this.Hide();
-                                            cform.ShowDialog();
-                                            this.Close();
-                                        }
+                                        //using (SqlCommand sqlinsert = (queue, parameters))
+                                        //{
+                                        //    int result = cmd.ExecuteNonQuery();
+
+                                        //    Debug.WriteLine(result.ToString());
+
+                                        //    if (result < 1)
+                                        //    {
+                                        //        MessageBox.Show("Registrasi gagal, silahkan coba lagi", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        //    }
+                                        //    else
+                                        //    {
+                                        //        customerForm cform = new customerForm();
+                                        //        this.Hide();
+                                        //        cform.ShowDialog();
+                                        //        this.Close();
+                                        //    }
+                                        //}
                                     }
                                 }
                             }

@@ -134,6 +134,7 @@
             // tanggal_lahir
             // 
             this.tanggal_lahir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tanggal_lahir.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.tanggal_lahir.Location = new System.Drawing.Point(2, 70);
             this.tanggal_lahir.Name = "tanggal_lahir";
             this.tanggal_lahir.Size = new System.Drawing.Size(358, 26);

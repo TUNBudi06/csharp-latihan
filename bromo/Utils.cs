@@ -10,98 +10,110 @@ namespace bromo
 {
     internal class Utils
     {
-        private SqlConnection conn = new SqlConnection(@"Data Source=TUNBUDI06\SQLEXPRESS;Initial Catalog=BromoAirlines;Integrated Security=True;Encrypt=False");
+        private readonly string conn =@"Data Source=TUNBUDI06\SQLEXPRESS;Initial Catalog=BromoAirlines;Integrated Security=True;Encrypt=False";
 
-        public SqlDataReader sqlreader(string query, SqlParameter[] parameters)
+
+        public SqlConnection koneksi()
         {
-            SqlDataReader reader = null;
-
-            using (SqlCommand cmd = conn.CreateCommand())
-            {
-                conn.Open();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = query;
-                if (parameters != null)
-                {
-                    cmd.Parameters.AddRange(parameters);
-                }
-
-                reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-
-                return reader;
-            }
+            return new SqlConnection(conn); ;
         }
 
-        public SqlDataAdapter sqlselect(string query, SqlParameter[] parameters)
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter();
+        //public SqlDataReader sqlreader(string query, SqlParameter[] parameters)
+        //{
+        //    SqlDataReader reader = null;
+        //    SqlConnection conn = koneksi();
 
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = query;
+        //    using (SqlCommand cmd = conn.CreateCommand())
+        //    {
+        //        conn.Open();
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.CommandText = query;
+        //        if (parameters != null)
+        //        {
+        //            cmd.Parameters.AddRange(parameters);
+        //        }
 
-            if (parameters != null)
-            {
-                cmd.Parameters.AddRange(parameters);
-            }
+        //        reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
-            adapter.SelectCommand = cmd;
+        //        return reader;
+        //    }
+        //}
 
-            conn.Open();
-            return adapter;
-        }
+        //public SqlDataAdapter sqlselect(string query, SqlParameter[] parameters)
+        //{
+        //    SqlDataAdapter adapter = new SqlDataAdapter();
+        //    SqlConnection conn = koneksi();
 
-        public SqlDataAdapter sqlupdate(string query, SqlParameter[] parameters)
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter();
 
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = query;
+        //    SqlCommand cmd = conn.CreateCommand();
+        //    cmd.CommandType = CommandType.Text;
+        //    cmd.CommandText = query;
 
-            if (parameters != null)
-            {
-                cmd.Parameters.AddRange(parameters);
-            }
+        //    if (parameters != null)
+        //    {
+        //        cmd.Parameters.AddRange(parameters);
+        //    }
 
-            adapter.UpdateCommand = cmd;
+        //    adapter.SelectCommand = cmd;
 
-            conn.Open();
-            return adapter;
-        }
+        //    conn.Open();
+        //    return adapter;
+        //}
 
-        public SqlCommand sqlinsert(string query, SqlParameter[] parameters)
-        {
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = query;
+        //public SqlDataAdapter sqlupdate(string query, SqlParameter[] parameters)
+        //{
+        //    SqlConnection conn = koneksi();
+        //    SqlDataAdapter adapter = new SqlDataAdapter();
 
-            if (parameters != null)
-            {
-                cmd.Parameters.AddRange(parameters);
-            }
+        //    SqlCommand cmd = conn.CreateCommand();
+        //    cmd.CommandType = CommandType.Text;
+        //    cmd.CommandText = query;
 
-            conn.Open();
-            return cmd;
-        }
+        //    if (parameters != null)
+        //    {
+        //        cmd.Parameters.AddRange(parameters);
+        //    }
 
-        public SqlDataAdapter sqldelete(string query, SqlParameter[] parameters)
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter();
+        //    adapter.UpdateCommand = cmd;
 
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = query;
+        //    conn.Open();
+        //    return adapter;
+        //}
 
-            if (parameters != null)
-            {
-                cmd.Parameters.AddRange(parameters);
-            }
+        //public SqlCommand sqlinsert(string query, SqlParameter[] parameters)
+        //{
+        //    SqlConnection conn = koneksi();
+        //    SqlCommand cmd = conn.CreateCommand();
+        //    cmd.CommandType = CommandType.Text;
+        //    cmd.CommandText = query;
 
-            adapter.DeleteCommand = cmd;
+        //    if (parameters != null)
+        //    {
+        //        cmd.Parameters.AddRange(parameters);
+        //    }
 
-            conn.Open();
-            return adapter;
-        }
+        //    conn.Open();
+        //    return cmd;
+        //}
+
+        //public SqlDataAdapter sqldelete(string query, SqlParameter[] parameters)
+        //{
+        //    SqlConnection conn = koneksi();
+        //    SqlDataAdapter adapter = new SqlDataAdapter();
+
+        //    SqlCommand cmd = conn.CreateCommand();
+        //    cmd.CommandType = CommandType.Text;
+        //    cmd.CommandText = query;
+
+        //    if (parameters != null)
+        //    {
+        //        cmd.Parameters.AddRange(parameters);
+        //    }
+
+        //    adapter.DeleteCommand = cmd;
+
+        //    conn.Open();
+        //    return adapter;
+        //}
     }
 }

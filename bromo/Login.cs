@@ -17,7 +17,7 @@ namespace bromo
         {
             InitializeComponent();
         }
-        private SqlConnection conn =  new SqlConnection(@"Data Source=TUNBUDI06\SQLEXPRESS;Initial Catalog=BromoAirlines;Integrated Security=True;Encrypt=False");
+        Utils koneksi = new Utils();
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -67,9 +67,12 @@ namespace bromo
 
         private void button_login_Click(object sender, EventArgs e)
         {
+            SqlConnection conn = koneksi.koneksi();
             try
             {
                 string query = "select * From Akun where Username = '" + textBox_username.Text + "' AND Password = '" + textBox_password.Text + "'";
+                
+
                 SqlDataAdapter run = new SqlDataAdapter(query, conn);
 
                 DataTable dt_user = new DataTable();
