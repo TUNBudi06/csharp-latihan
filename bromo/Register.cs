@@ -196,24 +196,38 @@ namespace bromo
                                         new SqlParameter("@nomorTelepon", textBox_noTelp.Text)
                                         };
 
-                                        //using (SqlCommand sqlinsert = (queue, parameters))
-                                        //{
-                                        //    int result = cmd.ExecuteNonQuery();
+                                        SqlConnection sql = conn.koneksi();
+                                        SqlCommand sqlinsert = sql.CreateCommand();
+                                        sqlinsert.CommandType = CommandType.Text;
+                                        sqlinsert.CommandText = queue;
+                                        sqlinsert.Parameters.AddRange(parameters);
+                                        Debug.WriteLine("result.ToString()");
+                                        try
+                                        {
+                                            sql.Open();
+                                            int result = sqlinsert.ExecuteNonQuery();
 
-                                        //    Debug.WriteLine(result.ToString());
 
-                                        //    if (result < 1)
-                                        //    {
-                                        //        MessageBox.Show("Registrasi gagal, silahkan coba lagi", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        //    }
-                                        //    else
-                                        //    {
-                                        //        customerForm cform = new customerForm();
-                                        //        this.Hide();
-                                        //        cform.ShowDialog();
-                                        //        this.Close();
-                                        //    }
-                                        //}
+                                            if (result < 1)
+                                            {
+                                                MessageBox.Show("Registrasi gagal, silahkan coba lagi", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            }
+                                            else
+                                            {
+                                                customerForm cform = new customerForm();
+                                                this.Hide();
+                                                cform.ShowDialog();
+                                                this.Close();
+                                            }
+                                        }
+                                        catch 
+                                        {
+                                            //MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
+                                        finally
+                                        {
+                                            sql.Close();
+                                        }
                                     }
                                 }
                             }
