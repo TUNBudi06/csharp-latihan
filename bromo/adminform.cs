@@ -38,16 +38,24 @@ namespace bromo
 
         public void defaultButton()
         {
-            this.button_masterBandana.ForeColor = System.Drawing.Color.FromArgb(((int)(((160)))),((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.button_masterMaskapai.ForeColor = System.Drawing.Color.FromArgb(((int)(((160)))),((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.button_MasterKodePromo.ForeColor = System.Drawing.Color.FromArgb(((int)(((160)))),((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.button_UbahStatusPenerbangan.ForeColor = System.Drawing.Color.FromArgb(((int)(((160)))),((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.button_masterJadwalPenerbangan.ForeColor = System.Drawing.Color.FromArgb(((int)(((160)))),((int)(((byte)(160)))), ((int)(((byte)(160)))));
-
             this.button_masterBandana.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\map-unselected-72.png");
+            this.button_masterBandana.ForeColor = System.Drawing.Color.FromArgb(((int)(((160)))),((int)(((byte)(160)))), ((int)(((byte)(160)))));
+
+
             this.button_masterMaskapai.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\plane-take-off-unselected-72.png");
+            this.button_masterMaskapai.ForeColor = System.Drawing.Color.FromArgb(((int)(((160)))),((int)(((byte)(160)))), ((int)(((byte)(160)))));
+
+
+            this.button_MasterKodePromo.ForeColor = System.Drawing.Color.FromArgb(((int)(((160)))),((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.button_MasterKodePromo.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\purchase-tag-alt-unselected-72.png");
+
+
+            this.button_UbahStatusPenerbangan.ForeColor = System.Drawing.Color.FromArgb(((int)(((160)))),((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.button_UbahStatusPenerbangan.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\notepad-unselected-72.png");
+
+
+
+            this.button_masterJadwalPenerbangan.ForeColor = System.Drawing.Color.FromArgb(((int)(((160)))),((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.button_masterJadwalPenerbangan.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\calendar-unselected-72.png");
         }
 
@@ -59,7 +67,7 @@ namespace bromo
         private void button_masterBandana_Click(object sender, EventArgs e)
         {
             defaultButton();
-            this.button_masterBandana.ForeColor = System.Drawing.Color.FromArgb(((int)(((0)))),((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button_masterBandana.ForeColor = System.Drawing.Color.Black;
             this.button_masterBandana.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\map-selected-72.png");
             Form panel = loadForm(new MasterBandara());
         }
@@ -87,6 +95,34 @@ namespace bromo
         public static void OpenLogin()
         {
             Application.Run(new Login());
+        }
+
+        private void button_masterMaskapai_Click(object sender, EventArgs e)
+        {
+            defaultButton();
+            this.button_masterMaskapai.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\plane-take-off-selected-72.png");
+            this.button_masterMaskapai.ForeColor = System.Drawing.Color.Black;
+        }
+
+        private void button_masterJadwalPenerbangan_Click(object sender, EventArgs e)
+        {
+            defaultButton();
+            this.button_masterJadwalPenerbangan.ForeColor = System.Drawing.Color.Black;
+            this.button_masterJadwalPenerbangan.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\calendar-selected-72.png");
+        }
+
+        private void button_MasterKodePromo_Click(object sender, EventArgs e)
+        {
+            defaultButton();
+            this.button_MasterKodePromo.ForeColor = System.Drawing.Color.Black;
+            this.button_MasterKodePromo.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\purchase-tag-alt-selected-72.png");
+        }
+
+        private void button_UbahStatusPenerbangan_Click(object sender, EventArgs e)
+        {
+            defaultButton();
+            this.button_UbahStatusPenerbangan.ForeColor = System.Drawing.Color.Black;
+            this.button_UbahStatusPenerbangan.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\notepad-selected-72.png");
         }
     }
 }

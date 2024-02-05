@@ -83,9 +83,9 @@ namespace bromo
                     string username = textBox_username.Text;
                     string password = textBox_password.Text;
                     DataRow dt_user_row = dt_user.Rows[0];
-                    Console.WriteLine("1");
+                    //Console.WriteLine("1");
                     int admin = Convert.ToInt32(dt_user_row["MerupakanAdmin"]);
-                    Console.WriteLine("2");
+                    //Console.WriteLine("2");
 
                     if ( admin == 0  )
                     {

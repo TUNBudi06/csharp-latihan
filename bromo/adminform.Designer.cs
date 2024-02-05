@@ -126,7 +126,7 @@ namespace bromo
             this.button_masterBandana.FlatAppearance.BorderSize = 0;
             this.button_masterBandana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_masterBandana.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_masterBandana.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\map-unselected-72.png");
+            this.button_masterBandana.Image = ((System.Drawing.Image)(resources.GetObject("button_masterBandana.Image")));
             this.button_masterBandana.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_masterBandana.Location = new System.Drawing.Point(3, 14);
             this.button_masterBandana.Name = "button_masterBandana";
@@ -153,6 +153,7 @@ namespace bromo
             this.button_UbahStatusPenerbangan.Text = "Ubah Status Penerbangan";
             this.button_UbahStatusPenerbangan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_UbahStatusPenerbangan.UseVisualStyleBackColor = true;
+            this.button_UbahStatusPenerbangan.Click += new System.EventHandler(this.button_UbahStatusPenerbangan_Click);
             // 
             // button_masterJadwalPenerbangan
             // 
@@ -171,6 +172,7 @@ namespace bromo
             this.button_masterJadwalPenerbangan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_masterJadwalPenerbangan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_masterJadwalPenerbangan.UseVisualStyleBackColor = true;
+            this.button_masterJadwalPenerbangan.Click += new System.EventHandler(this.button_masterJadwalPenerbangan_Click);
             // 
             // button_MasterKodePromo
             // 
@@ -189,6 +191,7 @@ namespace bromo
             this.button_MasterKodePromo.Text = "Master Kode Promo";
             this.button_MasterKodePromo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_MasterKodePromo.UseVisualStyleBackColor = true;
+            this.button_MasterKodePromo.Click += new System.EventHandler(this.button_MasterKodePromo_Click);
             // 
             // button_masterMaskapai
             // 
@@ -206,6 +209,7 @@ namespace bromo
             this.button_masterMaskapai.Text = "Master Maskapai";
             this.button_masterMaskapai.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_masterMaskapai.UseVisualStyleBackColor = true;
+            this.button_masterMaskapai.Click += new System.EventHandler(this.button_masterMaskapai_Click);
             // 
             // mainpanel
             // 
