@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,17 +10,11 @@ using System.Windows.Forms;
 
 namespace bromo
 {
-    public partial class adminform : Form
+    public partial class Form1 : Form
     {
-        public adminform()
+        public Form1()
         {
             InitializeComponent();
-        }
-        Utils con = new Utils();
-
-        private void adminform_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
