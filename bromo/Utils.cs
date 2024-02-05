@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace bromo
 {
@@ -17,6 +18,8 @@ namespace bromo
         {
             return new SqlConnection(conn); ;
         }
+
+        
 
         //public SqlDataReader sqlreader(string query, SqlParameter[] parameters)
         //{

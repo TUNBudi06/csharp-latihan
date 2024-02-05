@@ -96,8 +96,8 @@ namespace bromo
                     } else
                     {
                         adminform aform = new adminform();
-                        this.Hide(); aform.ShowDialog();
-                        this.Show();
+                        this.Hide(); 
+                        aform.Show();
                     }
                 } else
                 {

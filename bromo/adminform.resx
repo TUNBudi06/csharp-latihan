@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button_navbar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAItJREFUaEPt
         1rEJA0EMBMArxaW4M7vz8xoUfmQZdPAzoHRZJUILAADgPHvvZ+Z14lTFvoS9M0eqin3JsuSkqtiXrFss
@@ -126,7 +126,7 @@
         sS9ZflcAAOAf1voA/llUw9lKKFEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button_Logout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAeZJREFUaEPt
         muFRg1AMxzuCIziCC0D5aKkfuoGO4Aa6gd1EN7Ab2A3wDtSPuIEmNHAY0h5t81J95nf3v6PlSPIH8voe
@@ -163,7 +163,7 @@
         Z5xxIri4+AcjffKBazMtfQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button_UbahStatusPenerbangan.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAYlJREFUaEPt
         muFNw0AMhTMCI2SEbkA3gBHYADaAEbJBclmAbAAbwAawQdkAniWrqq5HhJMQG/I+6f25s33vqVKStqkI
@@ -175,7 +175,7 @@
         eoXH+W9myScKNVDxP3wnDdD8t7EIIStTVV/uoIFJ69vNjwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button_masterJadwalPenerbangan.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAcdJREFUaEPt
         muFNwzAQhTNCR+gI3YBuACN0A9iAjpANEncBsgHdADZghLIBvJOOKpwvVZy0sUHvk94f+3x+r5WaOE1F
@@ -188,7 +188,7 @@
         aAjhHR7nv5kl3yhUQ/a+Mqc6aP7bWISQhamqb0kXLrcTGXBeAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button_.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button_MasterKodePromo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAgxJREFUaEPt
         mD1uwkAQhTlF6hRp0qVLGY6QI3AUjkCTDmGgpQgFB8g1IiElNQ0USBQpkrfRjGSsxd6x92fW8ic9IXne
