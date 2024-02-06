@@ -51,10 +51,10 @@
             this.negaraTableAdapter = new bromo.BromoAirlinesTableAdapters.NegaraTableAdapter();
             this.label_terminal = new System.Windows.Forms.Label();
             this.label_alamat = new System.Windows.Forms.Label();
-            this.textBox_terminal = new System.Windows.Forms.TextBox();
             this.richTextBox_alamat = new System.Windows.Forms.RichTextBox();
             this.button_simpan = new System.Windows.Forms.Button();
             this.button_batal = new System.Windows.Forms.Button();
+            this.numericUpDown_terminal = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.BandaraGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandaraBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesBindingSource)).BeginInit();
@@ -63,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.negaraBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_terminal)).BeginInit();
             this.SuspendLayout();
             // 
             // label_master
@@ -248,16 +249,6 @@
             this.label_alamat.TabIndex = 12;
             this.label_alamat.Text = "Alamat:";
             // 
-            // textBox_terminal
-            // 
-            this.textBox_terminal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_terminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_terminal.Location = new System.Drawing.Point(529, 330);
-            this.textBox_terminal.Name = "textBox_terminal";
-            this.textBox_terminal.Size = new System.Drawing.Size(233, 22);
-            this.textBox_terminal.TabIndex = 13;
-            this.textBox_terminal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_terminal_KeyPress);
-            // 
             // richTextBox_alamat
             // 
             this.richTextBox_alamat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -290,15 +281,33 @@
             this.button_batal.Text = "Batal";
             this.button_batal.UseVisualStyleBackColor = true;
             // 
+            // numericUpDown_terminal
+            // 
+            this.numericUpDown_terminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_terminal.Location = new System.Drawing.Point(521, 332);
+            this.numericUpDown_terminal.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_terminal.Name = "numericUpDown_terminal";
+            this.numericUpDown_terminal.Size = new System.Drawing.Size(240, 22);
+            this.numericUpDown_terminal.TabIndex = 17;
+            this.numericUpDown_terminal.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // MasterBandara
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 560);
+            this.Controls.Add(this.numericUpDown_terminal);
             this.Controls.Add(this.button_batal);
             this.Controls.Add(this.button_simpan);
             this.Controls.Add(this.richTextBox_alamat);
-            this.Controls.Add(this.textBox_terminal);
             this.Controls.Add(this.label_alamat);
             this.Controls.Add(this.label_terminal);
             this.Controls.Add(this.comboBox_Negara);
@@ -324,6 +333,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.negaraBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_terminal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,9 +363,9 @@
         private BromoAirlinesTableAdapters.NegaraTableAdapter negaraTableAdapter;
         private System.Windows.Forms.Label label_terminal;
         private System.Windows.Forms.Label label_alamat;
-        private System.Windows.Forms.TextBox textBox_terminal;
         private System.Windows.Forms.RichTextBox richTextBox_alamat;
         private System.Windows.Forms.Button button_simpan;
         private System.Windows.Forms.Button button_batal;
+        private System.Windows.Forms.NumericUpDown numericUpDown_terminal;
     }
 }

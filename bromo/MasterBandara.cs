@@ -96,35 +96,7 @@ namespace bromo
         {
             if (e.ColumnIndex == 7)
             {
-                DataGridViewRow curRow = BandaraGV.Rows[e.RowIndex];
-                if (MessageBox.Show(String.Format("Do you want change the row?", curRow.Cells["ID"].Value), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    SqlConnection sqls = conn.koneksi();
-                    try
-                    {
-                        sqls.Open();
-
-                        SqlCommand cmd = sqls.CreateCommand();
-
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "update Bandara set Nama = @nama,KodeIATA = @iata,Kota = @kota,NegaraID = @negara,JumlahTerminal = @terminal,Alamat = @alamat where ID = @curr";
-
-                        cmd.Parameters.AddWithValue("@nama", curRow.Cells["nama"].Value);
-                        cmd.Parameters.AddWithValue("@iata", curRow.Cells["KodeIATA"].Value);
-                        cmd.Parameters.AddWithValue("@kota", curRow.Cells["Kota"].Value);
-                        cmd.Parameters.AddWithValue("@negara", curRow.Cells["NegaraID"].Value);
-                        cmd.Parameters.AddWithValue("@terminal", curRow.Cells["Jumlah Terminal"].Value);
-                        cmd.Parameters.AddWithValue("@curr", curRow.Cells["ID"].Value);
-                        cmd.Parameters.AddWithValue("@alamat", curRow.Cells["Alamat"].Value);
-
-                        cmd.ExecuteNonQuery();
-                        loadtable();
-                    }
-                    finally
-                    {
-                        sqls.Close();
-                    }
-                }
+                
             }
 
             if (e.ColumnIndex == 8)
