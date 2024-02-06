@@ -55,7 +55,7 @@ namespace bromo
             this.panel1.Controls.Add(this.button_navbar);
             this.panel1.Location = new System.Drawing.Point(2, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1041, 59);
+            this.panel1.Size = new System.Drawing.Size(1107, 59);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -99,7 +99,7 @@ namespace bromo
             this.panel_navbar.ForeColor = System.Drawing.Color.Black;
             this.panel_navbar.Location = new System.Drawing.Point(2, 51);
             this.panel_navbar.Name = "panel_navbar";
-            this.panel_navbar.Size = new System.Drawing.Size(284, 561);
+            this.panel_navbar.Size = new System.Drawing.Size(284, 568);
             this.panel_navbar.TabIndex = 1;
             // 
             // button_Logout
@@ -110,7 +110,7 @@ namespace bromo
             this.button_Logout.ForeColor = System.Drawing.Color.Red;
             this.button_Logout.Image = ((System.Drawing.Image)(resources.GetObject("button_Logout.Image")));
             this.button_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Logout.Location = new System.Drawing.Point(10, 507);
+            this.button_Logout.Location = new System.Drawing.Point(10, 514);
             this.button_Logout.Name = "button_Logout";
             this.button_Logout.Size = new System.Drawing.Size(205, 42);
             this.button_Logout.TabIndex = 4;
@@ -216,9 +216,9 @@ namespace bromo
             this.mainpanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainpanel.Location = new System.Drawing.Point(286, 59);
+            this.mainpanel.Location = new System.Drawing.Point(289, 59);
             this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(748, 553);
+            this.mainpanel.Size = new System.Drawing.Size(811, 560);
             this.mainpanel.TabIndex = 2;
             // 
             // adminform
@@ -226,13 +226,14 @@ namespace bromo
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(1035, 612);
+            this.ClientSize = new System.Drawing.Size(1101, 619);
             this.Controls.Add(this.mainpanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_navbar);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "adminform";
             this.Text = "Bromo Airlines - Admin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.adminform_FormClosing);
             this.Load += new System.EventHandler(this.adminform_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

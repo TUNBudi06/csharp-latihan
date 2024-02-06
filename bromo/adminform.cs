@@ -78,10 +78,14 @@ namespace bromo
             {
                 showNavbar = true;
                 this.panel_navbar.Visible = true;
+                this.mainpanel.Location = new System.Drawing.Point(289, 59);
+                this.mainpanel.Size = new System.Drawing.Size(814, 560);
             } else
             {
                 showNavbar = false;
-                this.panel_navbar.Visible = false; 
+                this.mainpanel.Location = new System.Drawing.Point(2, 59);
+                this.mainpanel.Size = new System.Drawing.Size(1098, 560);
+                this.panel_navbar.Visible = false;
             }
         }
 
@@ -123,6 +127,11 @@ namespace bromo
             defaultButton();
             this.button_UbahStatusPenerbangan.ForeColor = System.Drawing.Color.Black;
             this.button_UbahStatusPenerbangan.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\notepad-selected-72.png");
+        }
+
+        private void adminform_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
