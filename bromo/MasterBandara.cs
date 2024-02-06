@@ -17,42 +17,58 @@ namespace bromo
         {
             InitializeComponent();
         }
+        Utils conn = new Utils();
+
+        public void loadtable()
+        {
+
+            using (SqlConnection sqls = conn.koneksi())
+            {
+                try
+                {
+                    sqls.Open();
+
+                    string query = "select ID,Nama,KodeIATA,Kota,NegaraID,JumlahTerminal as 'Jumlah Terminal',Alamat from Bandara;";
+
+                    SqlCommand cmd = sqls.CreateCommand();
+
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = query;
+
+                    SqlDataAdapter data = new SqlDataAdapter();
+
+                    data.SelectCommand = cmd;
+
+                    DataTable dt = new DataTable();
+                    data.Fill(dt);
+
+                    
+                    this.BandaraGV.DataSource = dt;
+                    this.BandaraGV.AllowUserToAddRows = false;
+                    this.BandaraGV.Columns["ID"].Visible = false;
+                }
+                finally
+                {
+                    sqls.Close();
+                }
+            }
+        }
 
         private void MasterBandara_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'bromoAirlines.Negara' table. You can move, or remove it, as needed.
-            this.negaraTableAdapter.Fill(this.bromoAirlines.Negara);
-            // TODO: This line of code loads data into the 'bromoAirlines.Bandara' table. You can move, or remove it, as needed.
-            this.bandaraTableAdapter.Fill(this.bromoAirlines.Bandara);
-            Utils conn = new Utils();
+            loadtable();
+            DataGridViewButtonColumn Ubah = new DataGridViewButtonColumn();
+            Ubah.Text = "Ubah";
+            Ubah.UseColumnTextForButtonValue = true;
 
-            //using (SqlConnection sqls = conn.koneksi())
-            //{
-            //    try
-            //    {
-            //        sqls.Open();
+            Ubah.Width = 100;
+            DataGridViewButtonColumn Hapus = new DataGridViewButtonColumn();
+            Hapus.Text = "Hapus";
+            Hapus.Width = 100;
+            Hapus.UseColumnTextForButtonValue = true;
 
-            //        string query = "select * from Bandara;";
-
-            //        SqlCommand cmd = sqls.CreateCommand();
-
-            //        cmd.CommandType = CommandType.Text;
-            //        cmd.CommandText = query;
-
-            //        SqlDataAdapter data = new SqlDataAdapter();
-
-            //        data.SelectCommand = cmd;
-
-            //        DataTable dt = new DataTable();
-            //        data.Fill(dt);
-
-            //        bandaraTableAdapter.Fill(dt);
-            //    }
-            //    catch
-            //    {
-
-            //    }
-            //}
+            BandaraGV.Columns.Insert(7, Ubah);
+            BandaraGV.Columns.Insert(8, Hapus);
         }
 
         private void label_nama_Click(object sender, EventArgs e)
@@ -73,6 +89,68 @@ namespace bromo
             if (this.textBox_kodeIATA.Text.Length > 3)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void BandaraGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 7)
+            {
+                DataGridViewRow curRow = BandaraGV.Rows[e.RowIndex];
+                if (MessageBox.Show(String.Format("Do you want change the row?", curRow.Cells["ID"].Value), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    SqlConnection sqls = conn.koneksi();
+                    try
+                    {
+                        sqls.Open();
+
+                        SqlCommand cmd = sqls.CreateCommand();
+
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "update Bandara set Nama = @nama,KodeIATA = @iata,Kota = @kota,NegaraID = @negara,JumlahTerminal = @terminal,Alamat = @alamat where ID = @curr";
+
+                        cmd.Parameters.AddWithValue("@nama", curRow.Cells["nama"].Value);
+                        cmd.Parameters.AddWithValue("@iata", curRow.Cells["KodeIATA"].Value);
+                        cmd.Parameters.AddWithValue("@kota", curRow.Cells["Kota"].Value);
+                        cmd.Parameters.AddWithValue("@negara", curRow.Cells["NegaraID"].Value);
+                        cmd.Parameters.AddWithValue("@terminal", curRow.Cells["Jumlah Terminal"].Value);
+                        cmd.Parameters.AddWithValue("@curr", curRow.Cells["ID"].Value);
+                        cmd.Parameters.AddWithValue("@alamat", curRow.Cells["Alamat"].Value);
+
+                        cmd.ExecuteNonQuery();
+                        loadtable();
+                    }
+                    finally
+                    {
+                        sqls.Close();
+                    }
+                }
+            }
+
+            if (e.ColumnIndex == 8)
+            {
+                DataGridViewRow curRow = BandaraGV.Rows[e.RowIndex];
+                if (MessageBox.Show(String.Format("Do you want delete the row?", curRow.Cells["ID"].Value), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    SqlConnection sqls = conn.koneksi();
+                    try
+                    {
+                        sqls.Open();
+
+                        SqlCommand cmd = sqls.CreateCommand();
+
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "delete from bandara where ID = @curr";
+                        cmd.Parameters.AddWithValue("@curr", curRow.Cells["ID"].Value);
+
+                        cmd.ExecuteNonQuery();
+                        loadtable();
+                    }
+                    finally
+                    {
+                        sqls.Close();
+                    }
+                }
             }
         }
     }

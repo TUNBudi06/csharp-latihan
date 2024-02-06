@@ -55,14 +55,6 @@
             this.richTextBox_alamat = new System.Windows.Forms.RichTextBox();
             this.button_simpan = new System.Windows.Forms.Button();
             this.button_batal = new System.Windows.Forms.Button();
-            this.nama = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kodeIATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.negaraID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jumlahTerminal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alamat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ubah = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Hapus = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.BandaraGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandaraBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesBindingSource)).BeginInit();
@@ -98,22 +90,12 @@
             this.BandaraGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BandaraGV.AutoGenerateColumns = false;
             this.BandaraGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.BandaraGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nama,
-            this.kodeIATA,
-            this.kota,
-            this.negaraID,
-            this.jumlahTerminal,
-            this.alamat,
-            this.ubah,
-            this.Hapus});
-            this.BandaraGV.DataSource = this.bandaraBindingSource;
             this.BandaraGV.Location = new System.Drawing.Point(12, 94);
             this.BandaraGV.Name = "BandaraGV";
             this.BandaraGV.Size = new System.Drawing.Size(792, 196);
             this.BandaraGV.TabIndex = 2;
+            this.BandaraGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BandaraGV_CellContentClick);
             // 
             // bandaraBindingSource
             // 
@@ -308,68 +290,6 @@
             this.button_batal.Text = "Batal";
             this.button_batal.UseVisualStyleBackColor = true;
             // 
-            // nama
-            // 
-            this.nama.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nama.DataPropertyName = "Nama";
-            this.nama.HeaderText = "Nama";
-            this.nama.Name = "nama";
-            this.nama.Width = 60;
-            // 
-            // kodeIATA
-            // 
-            this.kodeIATA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.kodeIATA.DataPropertyName = "KodeIATA";
-            this.kodeIATA.HeaderText = "KodeIATA";
-            this.kodeIATA.Name = "kodeIATA";
-            this.kodeIATA.Width = 81;
-            // 
-            // kota
-            // 
-            this.kota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.kota.DataPropertyName = "Kota";
-            this.kota.HeaderText = "Kota";
-            this.kota.Name = "kota";
-            this.kota.Width = 54;
-            // 
-            // negaraID
-            // 
-            this.negaraID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.negaraID.DataPropertyName = "NegaraID";
-            this.negaraID.HeaderText = "NegaraID";
-            this.negaraID.Name = "negaraID";
-            this.negaraID.Width = 78;
-            // 
-            // jumlahTerminal
-            // 
-            this.jumlahTerminal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.jumlahTerminal.DataPropertyName = "JumlahTerminal";
-            this.jumlahTerminal.HeaderText = "JumlahTerminal";
-            this.jumlahTerminal.Name = "jumlahTerminal";
-            this.jumlahTerminal.Width = 105;
-            // 
-            // alamat
-            // 
-            this.alamat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.alamat.DataPropertyName = "Alamat";
-            this.alamat.HeaderText = "Alamat";
-            this.alamat.Name = "alamat";
-            this.alamat.Width = 64;
-            // 
-            // ubah
-            // 
-            this.ubah.HeaderText = "";
-            this.ubah.Name = "ubah";
-            this.ubah.Text = "Ubah";
-            this.ubah.UseColumnTextForButtonValue = true;
-            // 
-            // Hapus
-            // 
-            this.Hapus.HeaderText = "";
-            this.Hapus.Name = "Hapus";
-            this.Hapus.Text = "Hapus";
-            this.Hapus.UseColumnTextForButtonValue = true;
-            // 
             // MasterBandara
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,13 +357,5 @@
         private System.Windows.Forms.RichTextBox richTextBox_alamat;
         private System.Windows.Forms.Button button_simpan;
         private System.Windows.Forms.Button button_batal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nama;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kodeIATA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn negaraID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jumlahTerminal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn alamat;
-        private System.Windows.Forms.DataGridViewButtonColumn ubah;
-        private System.Windows.Forms.DataGridViewButtonColumn Hapus;
     }
 }
