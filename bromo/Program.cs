@@ -16,7 +16,7 @@ namespace bromo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MasterBandara());
+            Application.Run(new Login());
         }
     }
 }

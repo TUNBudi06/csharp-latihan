@@ -52,7 +52,7 @@ namespace bromo
                     this.BandaraGV.DataSource = dt;
                     this.BandaraGV.AllowUserToAddRows = false;
                     this.BandaraGV.Columns["ID"].Visible = false;
-                    Console.WriteLine(BandaraGV.ColumnCount);
+                    //Console.WriteLine(BandaraGV.ColumnCount);
                     if (BandaraGV.ColumnCount < 8)
                     {
                         DataGridViewButtonColumn Ubah = new DataGridViewButtonColumn();
@@ -111,7 +111,7 @@ namespace bromo
 
         private void BandaraGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Console.WriteLine(e.ColumnIndex);
+            //Console.WriteLine(e.ColumnIndex);
             if (e.ColumnIndex >=0 && BandaraGV.Columns[e.ColumnIndex].Name == "ubah")
             {
                 updateData = true;

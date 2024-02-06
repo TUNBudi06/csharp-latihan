@@ -96,7 +96,7 @@
             // 
             // label_nama
             // 
-            this.label_nama.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label_nama.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_nama.AutoSize = true;
             this.label_nama.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nama.Location = new System.Drawing.Point(8, 330);
@@ -108,7 +108,7 @@
             // 
             // label_kodeIATA
             // 
-            this.label_kodeIATA.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label_kodeIATA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_kodeIATA.AutoSize = true;
             this.label_kodeIATA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_kodeIATA.Location = new System.Drawing.Point(8, 361);
@@ -119,7 +119,7 @@
             // 
             // label_Kota
             // 
-            this.label_Kota.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label_Kota.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_Kota.AutoSize = true;
             this.label_Kota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Kota.Location = new System.Drawing.Point(9, 397);
@@ -130,7 +130,7 @@
             // 
             // label_negara
             // 
-            this.label_negara.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label_negara.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_negara.AutoSize = true;
             this.label_negara.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_negara.Location = new System.Drawing.Point(10, 434);
@@ -141,7 +141,7 @@
             // 
             // textBox_nama
             // 
-            this.textBox_nama.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox_nama.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox_nama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_nama.Location = new System.Drawing.Point(131, 328);
             this.textBox_nama.Name = "textBox_nama";
@@ -150,7 +150,7 @@
             // 
             // textBox_kodeIATA
             // 
-            this.textBox_kodeIATA.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox_kodeIATA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox_kodeIATA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBox_kodeIATA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_kodeIATA.Location = new System.Drawing.Point(131, 361);
@@ -161,7 +161,7 @@
             // 
             // textBox_kota
             // 
-            this.textBox_kota.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox_kota.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox_kota.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_kota.Location = new System.Drawing.Point(131, 395);
             this.textBox_kota.Name = "textBox_kota";
@@ -226,6 +226,7 @@
             // 
             // numericUpDown_terminal
             // 
+            this.numericUpDown_terminal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown_terminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown_terminal.Location = new System.Drawing.Point(549, 328);
             this.numericUpDown_terminal.Minimum = new decimal(new int[] {
@@ -244,6 +245,7 @@
             // 
             // comboBox_Negara
             // 
+            this.comboBox_Negara.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox_Negara.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox_Negara.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox_Negara.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bandaraBindingSource, "NegaraID", true));
