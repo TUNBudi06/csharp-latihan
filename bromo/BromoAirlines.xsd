@@ -147,7 +147,16 @@ SELECT ID, Nama, KodeIATA, Kota, NegaraID, JumlahTerminal, Alamat FROM Bandara W
               <Mapping SourceColumn="JumlahTerminal" DataSetColumn="JumlahTerminal" />
               <Mapping SourceColumn="Alamat" DataSetColumn="Alamat" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="BromoAirlinesConnectionString (Settings)" DbObjectName="BromoAirlines.dbo.Bandara" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, Nama, KodeIATA, Kota, NegaraID, JumlahTerminal, Alamat FROM dbo.Bandara</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="JadwalPenerbanganTableAdapter" GeneratorDataComponentClassName="JadwalPenerbanganTableAdapter" Name="JadwalPenerbangan" UserDataComponentName="JadwalPenerbanganTableAdapter">
             <MainSource>
@@ -401,7 +410,16 @@ SELECT ID, Nama, IbukotaNegara FROM Negara WHERE (ID = @ID)</CommandText>
               <Mapping SourceColumn="Nama" DataSetColumn="Nama" />
               <Mapping SourceColumn="IbukotaNegara" DataSetColumn="IbukotaNegara" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="BromoAirlinesConnectionString (Settings)" DbObjectName="BromoAirlines.dbo.Negara" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, Nama, IbukotaNegara FROM dbo.Negara</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PerubahanStatusJadwalPenerbanganTableAdapter" GeneratorDataComponentClassName="PerubahanStatusJadwalPenerbanganTableAdapter" Name="PerubahanStatusJadwalPenerbangan" UserDataComponentName="PerubahanStatusJadwalPenerbanganTableAdapter">
             <MainSource>
@@ -650,74 +668,74 @@ SELECT ID, AkunID, TanggalTransaksi, JadwalPenerbanganID, JumlahPenumpang, Total
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="BromoAirlines" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="BromoAirlines" msprop:Generator_DataSetName="BromoAirlines">
+  <xs:element name="BromoAirlines" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="BromoAirlines" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BromoAirlines">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Akun" msprop:Generator_RowEvHandlerName="AkunRowChangeEventHandler" msprop:Generator_RowDeletedName="AkunRowDeleted" msprop:Generator_RowDeletingName="AkunRowDeleting" msprop:Generator_RowEvArgName="AkunRowChangeEvent" msprop:Generator_TablePropName="Akun" msprop:Generator_RowChangedName="AkunRowChanged" msprop:Generator_RowChangingName="AkunRowChanging" msprop:Generator_TableClassName="AkunDataTable" msprop:Generator_RowClassName="AkunRow" msprop:Generator_TableVarName="tableAkun" msprop:Generator_UserTableName="Akun">
+        <xs:element name="Akun" msprop:Generator_RowClassName="AkunRow" msprop:Generator_RowEvHandlerName="AkunRowChangeEventHandler" msprop:Generator_RowDeletedName="AkunRowDeleted" msprop:Generator_RowDeletingName="AkunRowDeleting" msprop:Generator_RowEvArgName="AkunRowChangeEvent" msprop:Generator_TablePropName="Akun" msprop:Generator_RowChangedName="AkunRowChanged" msprop:Generator_UserTableName="Akun" msprop:Generator_RowChangingName="AkunRowChanging" msprop:Generator_TableClassName="AkunDataTable" msprop:Generator_TableVarName="tableAkun">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="Username" msprop:Generator_ColumnPropNameInRow="Username" msprop:Generator_ColumnPropNameInTable="UsernameColumn" msprop:Generator_ColumnVarNameInTable="columnUsername" msprop:Generator_UserColumnName="Username">
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="Username" msprop:Generator_UserColumnName="Username" msprop:Generator_ColumnPropNameInTable="UsernameColumn" msprop:Generator_ColumnPropNameInRow="Username" msprop:Generator_ColumnVarNameInTable="columnUsername">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Password" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_UserColumnName="Password">
+              <xs:element name="Password" msprop:Generator_UserColumnName="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnVarNameInTable="columnPassword">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Nama" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn" msprop:Generator_ColumnVarNameInTable="columnNama" msprop:Generator_UserColumnName="Nama">
+              <xs:element name="Nama" msprop:Generator_UserColumnName="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnVarNameInTable="columnNama">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TanggalLahir" msprop:Generator_ColumnPropNameInRow="TanggalLahir" msprop:Generator_ColumnPropNameInTable="TanggalLahirColumn" msprop:Generator_ColumnVarNameInTable="columnTanggalLahir" msprop:Generator_UserColumnName="TanggalLahir" type="xs:dateTime" />
-              <xs:element name="NomorTelepon" msprop:Generator_ColumnPropNameInRow="NomorTelepon" msprop:Generator_ColumnPropNameInTable="NomorTeleponColumn" msprop:Generator_ColumnVarNameInTable="columnNomorTelepon" msprop:Generator_UserColumnName="NomorTelepon">
+              <xs:element name="TanggalLahir" msprop:Generator_UserColumnName="TanggalLahir" msprop:Generator_ColumnPropNameInTable="TanggalLahirColumn" msprop:Generator_ColumnPropNameInRow="TanggalLahir" msprop:Generator_ColumnVarNameInTable="columnTanggalLahir" type="xs:dateTime" />
+              <xs:element name="NomorTelepon" msprop:Generator_UserColumnName="NomorTelepon" msprop:Generator_ColumnPropNameInTable="NomorTeleponColumn" msprop:Generator_ColumnPropNameInRow="NomorTelepon" msprop:Generator_ColumnVarNameInTable="columnNomorTelepon">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MerupakanAdmin" msprop:Generator_ColumnPropNameInRow="MerupakanAdmin" msprop:Generator_ColumnPropNameInTable="MerupakanAdminColumn" msprop:Generator_ColumnVarNameInTable="columnMerupakanAdmin" msprop:Generator_UserColumnName="MerupakanAdmin" type="xs:boolean" />
+              <xs:element name="MerupakanAdmin" msprop:Generator_UserColumnName="MerupakanAdmin" msprop:Generator_ColumnPropNameInTable="MerupakanAdminColumn" msprop:Generator_ColumnPropNameInRow="MerupakanAdmin" msprop:Generator_ColumnVarNameInTable="columnMerupakanAdmin" type="xs:boolean" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Bandara" msprop:Generator_RowEvHandlerName="BandaraRowChangeEventHandler" msprop:Generator_RowDeletedName="BandaraRowDeleted" msprop:Generator_RowDeletingName="BandaraRowDeleting" msprop:Generator_RowEvArgName="BandaraRowChangeEvent" msprop:Generator_TablePropName="Bandara" msprop:Generator_RowChangedName="BandaraRowChanged" msprop:Generator_RowChangingName="BandaraRowChanging" msprop:Generator_TableClassName="BandaraDataTable" msprop:Generator_RowClassName="BandaraRow" msprop:Generator_TableVarName="tableBandara" msprop:Generator_UserTableName="Bandara">
+        <xs:element name="Bandara" msprop:Generator_RowClassName="BandaraRow" msprop:Generator_RowEvHandlerName="BandaraRowChangeEventHandler" msprop:Generator_RowDeletedName="BandaraRowDeleted" msprop:Generator_RowDeletingName="BandaraRowDeleting" msprop:Generator_RowEvArgName="BandaraRowChangeEvent" msprop:Generator_TablePropName="Bandara" msprop:Generator_RowChangedName="BandaraRowChanged" msprop:Generator_UserTableName="Bandara" msprop:Generator_RowChangingName="BandaraRowChanging" msprop:Generator_TableClassName="BandaraDataTable" msprop:Generator_TableVarName="tableBandara">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="Nama" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn" msprop:Generator_ColumnVarNameInTable="columnNama" msprop:Generator_UserColumnName="Nama">
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="Nama" msprop:Generator_UserColumnName="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnVarNameInTable="columnNama">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="KodeIATA" msprop:Generator_ColumnPropNameInRow="KodeIATA" msprop:Generator_ColumnPropNameInTable="KodeIATAColumn" msprop:Generator_ColumnVarNameInTable="columnKodeIATA" msprop:Generator_UserColumnName="KodeIATA">
+              <xs:element name="KodeIATA" msprop:Generator_UserColumnName="KodeIATA" msprop:Generator_ColumnPropNameInTable="KodeIATAColumn" msprop:Generator_ColumnPropNameInRow="KodeIATA" msprop:Generator_ColumnVarNameInTable="columnKodeIATA">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Kota" msprop:Generator_ColumnPropNameInRow="Kota" msprop:Generator_ColumnPropNameInTable="KotaColumn" msprop:Generator_ColumnVarNameInTable="columnKota" msprop:Generator_UserColumnName="Kota">
+              <xs:element name="Kota" msprop:Generator_UserColumnName="Kota" msprop:Generator_ColumnPropNameInTable="KotaColumn" msprop:Generator_ColumnPropNameInRow="Kota" msprop:Generator_ColumnVarNameInTable="columnKota">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NegaraID" msprop:Generator_ColumnPropNameInRow="NegaraID" msprop:Generator_ColumnPropNameInTable="NegaraIDColumn" msprop:Generator_ColumnVarNameInTable="columnNegaraID" msprop:Generator_UserColumnName="NegaraID" type="xs:int" />
-              <xs:element name="JumlahTerminal" msprop:Generator_ColumnPropNameInRow="JumlahTerminal" msprop:Generator_ColumnPropNameInTable="JumlahTerminalColumn" msprop:Generator_ColumnVarNameInTable="columnJumlahTerminal" msprop:Generator_UserColumnName="JumlahTerminal" type="xs:int" />
-              <xs:element name="Alamat" msprop:Generator_ColumnPropNameInRow="Alamat" msprop:Generator_ColumnPropNameInTable="AlamatColumn" msprop:Generator_ColumnVarNameInTable="columnAlamat" msprop:Generator_UserColumnName="Alamat">
+              <xs:element name="NegaraID" msprop:Generator_UserColumnName="NegaraID" msprop:Generator_ColumnPropNameInTable="NegaraIDColumn" msprop:Generator_ColumnPropNameInRow="NegaraID" msprop:Generator_ColumnVarNameInTable="columnNegaraID" type="xs:int" />
+              <xs:element name="JumlahTerminal" msprop:Generator_UserColumnName="JumlahTerminal" msprop:Generator_ColumnPropNameInTable="JumlahTerminalColumn" msprop:Generator_ColumnPropNameInRow="JumlahTerminal" msprop:Generator_ColumnVarNameInTable="columnJumlahTerminal" type="xs:int" />
+              <xs:element name="Alamat" msprop:Generator_UserColumnName="Alamat" msprop:Generator_ColumnPropNameInTable="AlamatColumn" msprop:Generator_ColumnPropNameInRow="Alamat" msprop:Generator_ColumnVarNameInTable="columnAlamat">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -727,41 +745,41 @@ SELECT ID, AkunID, TanggalTransaksi, JadwalPenerbanganID, JumlahPenumpang, Total
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="JadwalPenerbangan" msprop:Generator_RowEvHandlerName="JadwalPenerbanganRowChangeEventHandler" msprop:Generator_RowDeletedName="JadwalPenerbanganRowDeleted" msprop:Generator_RowDeletingName="JadwalPenerbanganRowDeleting" msprop:Generator_RowEvArgName="JadwalPenerbanganRowChangeEvent" msprop:Generator_TablePropName="JadwalPenerbangan" msprop:Generator_RowChangedName="JadwalPenerbanganRowChanged" msprop:Generator_RowChangingName="JadwalPenerbanganRowChanging" msprop:Generator_TableClassName="JadwalPenerbanganDataTable" msprop:Generator_RowClassName="JadwalPenerbanganRow" msprop:Generator_TableVarName="tableJadwalPenerbangan" msprop:Generator_UserTableName="JadwalPenerbangan">
+        <xs:element name="JadwalPenerbangan" msprop:Generator_RowClassName="JadwalPenerbanganRow" msprop:Generator_RowEvHandlerName="JadwalPenerbanganRowChangeEventHandler" msprop:Generator_RowDeletedName="JadwalPenerbanganRowDeleted" msprop:Generator_RowDeletingName="JadwalPenerbanganRowDeleting" msprop:Generator_RowEvArgName="JadwalPenerbanganRowChangeEvent" msprop:Generator_TablePropName="JadwalPenerbangan" msprop:Generator_RowChangedName="JadwalPenerbanganRowChanged" msprop:Generator_UserTableName="JadwalPenerbangan" msprop:Generator_RowChangingName="JadwalPenerbanganRowChanging" msprop:Generator_TableClassName="JadwalPenerbanganDataTable" msprop:Generator_TableVarName="tableJadwalPenerbangan">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="KodePenerbangan" msprop:Generator_ColumnPropNameInRow="KodePenerbangan" msprop:Generator_ColumnPropNameInTable="KodePenerbanganColumn" msprop:Generator_ColumnVarNameInTable="columnKodePenerbangan" msprop:Generator_UserColumnName="KodePenerbangan">
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="KodePenerbangan" msprop:Generator_UserColumnName="KodePenerbangan" msprop:Generator_ColumnPropNameInTable="KodePenerbanganColumn" msprop:Generator_ColumnPropNameInRow="KodePenerbangan" msprop:Generator_ColumnVarNameInTable="columnKodePenerbangan">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BandaraKeberangkatanID" msprop:Generator_ColumnPropNameInRow="BandaraKeberangkatanID" msprop:Generator_ColumnPropNameInTable="BandaraKeberangkatanIDColumn" msprop:Generator_ColumnVarNameInTable="columnBandaraKeberangkatanID" msprop:Generator_UserColumnName="BandaraKeberangkatanID" type="xs:int" />
-              <xs:element name="BandaraTujuanID" msprop:Generator_ColumnPropNameInRow="BandaraTujuanID" msprop:Generator_ColumnPropNameInTable="BandaraTujuanIDColumn" msprop:Generator_ColumnVarNameInTable="columnBandaraTujuanID" msprop:Generator_UserColumnName="BandaraTujuanID" type="xs:int" />
-              <xs:element name="MaskapaiID" msprop:Generator_ColumnPropNameInRow="MaskapaiID" msprop:Generator_ColumnPropNameInTable="MaskapaiIDColumn" msprop:Generator_ColumnVarNameInTable="columnMaskapaiID" msprop:Generator_UserColumnName="MaskapaiID" type="xs:int" />
-              <xs:element name="TanggalWaktuKeberangkatan" msprop:Generator_ColumnPropNameInRow="TanggalWaktuKeberangkatan" msprop:Generator_ColumnPropNameInTable="TanggalWaktuKeberangkatanColumn" msprop:Generator_ColumnVarNameInTable="columnTanggalWaktuKeberangkatan" msprop:Generator_UserColumnName="TanggalWaktuKeberangkatan" type="xs:dateTime" />
-              <xs:element name="DurasiPenerbangan" msprop:Generator_ColumnPropNameInRow="DurasiPenerbangan" msprop:Generator_ColumnPropNameInTable="DurasiPenerbanganColumn" msprop:Generator_ColumnVarNameInTable="columnDurasiPenerbangan" msprop:Generator_UserColumnName="DurasiPenerbangan" type="xs:int" />
-              <xs:element name="HargaPerTiket" msprop:Generator_ColumnPropNameInRow="HargaPerTiket" msprop:Generator_ColumnPropNameInTable="HargaPerTiketColumn" msprop:Generator_ColumnVarNameInTable="columnHargaPerTiket" msprop:Generator_UserColumnName="HargaPerTiket" type="xs:double" />
+              <xs:element name="BandaraKeberangkatanID" msprop:Generator_UserColumnName="BandaraKeberangkatanID" msprop:Generator_ColumnPropNameInTable="BandaraKeberangkatanIDColumn" msprop:Generator_ColumnPropNameInRow="BandaraKeberangkatanID" msprop:Generator_ColumnVarNameInTable="columnBandaraKeberangkatanID" type="xs:int" />
+              <xs:element name="BandaraTujuanID" msprop:Generator_UserColumnName="BandaraTujuanID" msprop:Generator_ColumnPropNameInTable="BandaraTujuanIDColumn" msprop:Generator_ColumnPropNameInRow="BandaraTujuanID" msprop:Generator_ColumnVarNameInTable="columnBandaraTujuanID" type="xs:int" />
+              <xs:element name="MaskapaiID" msprop:Generator_UserColumnName="MaskapaiID" msprop:Generator_ColumnPropNameInTable="MaskapaiIDColumn" msprop:Generator_ColumnPropNameInRow="MaskapaiID" msprop:Generator_ColumnVarNameInTable="columnMaskapaiID" type="xs:int" />
+              <xs:element name="TanggalWaktuKeberangkatan" msprop:Generator_UserColumnName="TanggalWaktuKeberangkatan" msprop:Generator_ColumnPropNameInTable="TanggalWaktuKeberangkatanColumn" msprop:Generator_ColumnPropNameInRow="TanggalWaktuKeberangkatan" msprop:Generator_ColumnVarNameInTable="columnTanggalWaktuKeberangkatan" type="xs:dateTime" />
+              <xs:element name="DurasiPenerbangan" msprop:Generator_UserColumnName="DurasiPenerbangan" msprop:Generator_ColumnPropNameInTable="DurasiPenerbanganColumn" msprop:Generator_ColumnPropNameInRow="DurasiPenerbangan" msprop:Generator_ColumnVarNameInTable="columnDurasiPenerbangan" type="xs:int" />
+              <xs:element name="HargaPerTiket" msprop:Generator_UserColumnName="HargaPerTiket" msprop:Generator_ColumnPropNameInTable="HargaPerTiketColumn" msprop:Generator_ColumnPropNameInRow="HargaPerTiket" msprop:Generator_ColumnVarNameInTable="columnHargaPerTiket" type="xs:double" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="KodePromo" msprop:Generator_RowEvHandlerName="KodePromoRowChangeEventHandler" msprop:Generator_RowDeletedName="KodePromoRowDeleted" msprop:Generator_RowDeletingName="KodePromoRowDeleting" msprop:Generator_RowEvArgName="KodePromoRowChangeEvent" msprop:Generator_TablePropName="KodePromo" msprop:Generator_RowChangedName="KodePromoRowChanged" msprop:Generator_RowChangingName="KodePromoRowChanging" msprop:Generator_TableClassName="KodePromoDataTable" msprop:Generator_RowClassName="KodePromoRow" msprop:Generator_TableVarName="tableKodePromo" msprop:Generator_UserTableName="KodePromo">
+        <xs:element name="KodePromo" msprop:Generator_RowClassName="KodePromoRow" msprop:Generator_RowEvHandlerName="KodePromoRowChangeEventHandler" msprop:Generator_RowDeletedName="KodePromoRowDeleted" msprop:Generator_RowDeletingName="KodePromoRowDeleting" msprop:Generator_RowEvArgName="KodePromoRowChangeEvent" msprop:Generator_TablePropName="KodePromo" msprop:Generator_RowChangedName="KodePromoRowChanged" msprop:Generator_UserTableName="KodePromo" msprop:Generator_RowChangingName="KodePromoRowChanging" msprop:Generator_TableClassName="KodePromoDataTable" msprop:Generator_TableVarName="tableKodePromo">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="Kode" msprop:Generator_ColumnPropNameInRow="Kode" msprop:Generator_ColumnPropNameInTable="KodeColumn" msprop:Generator_ColumnVarNameInTable="columnKode" msprop:Generator_UserColumnName="Kode">
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="Kode" msprop:Generator_UserColumnName="Kode" msprop:Generator_ColumnPropNameInTable="KodeColumn" msprop:Generator_ColumnPropNameInRow="Kode" msprop:Generator_ColumnVarNameInTable="columnKode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PersentaseDiskon" msprop:Generator_ColumnPropNameInRow="PersentaseDiskon" msprop:Generator_ColumnPropNameInTable="PersentaseDiskonColumn" msprop:Generator_ColumnVarNameInTable="columnPersentaseDiskon" msprop:Generator_UserColumnName="PersentaseDiskon" type="xs:double" />
-              <xs:element name="MaksimumDiskon" msprop:Generator_ColumnPropNameInRow="MaksimumDiskon" msprop:Generator_ColumnPropNameInTable="MaksimumDiskonColumn" msprop:Generator_ColumnVarNameInTable="columnMaksimumDiskon" msprop:Generator_UserColumnName="MaksimumDiskon" type="xs:double" />
-              <xs:element name="BerlakuSampai" msprop:Generator_ColumnPropNameInRow="BerlakuSampai" msprop:Generator_ColumnPropNameInTable="BerlakuSampaiColumn" msprop:Generator_ColumnVarNameInTable="columnBerlakuSampai" msprop:Generator_UserColumnName="BerlakuSampai" type="xs:dateTime" />
-              <xs:element name="Deskripsi" msprop:Generator_ColumnPropNameInRow="Deskripsi" msprop:Generator_ColumnPropNameInTable="DeskripsiColumn" msprop:Generator_ColumnVarNameInTable="columnDeskripsi" msprop:Generator_UserColumnName="Deskripsi">
+              <xs:element name="PersentaseDiskon" msprop:Generator_UserColumnName="PersentaseDiskon" msprop:Generator_ColumnPropNameInTable="PersentaseDiskonColumn" msprop:Generator_ColumnPropNameInRow="PersentaseDiskon" msprop:Generator_ColumnVarNameInTable="columnPersentaseDiskon" type="xs:double" />
+              <xs:element name="MaksimumDiskon" msprop:Generator_UserColumnName="MaksimumDiskon" msprop:Generator_ColumnPropNameInTable="MaksimumDiskonColumn" msprop:Generator_ColumnPropNameInRow="MaksimumDiskon" msprop:Generator_ColumnVarNameInTable="columnMaksimumDiskon" type="xs:double" />
+              <xs:element name="BerlakuSampai" msprop:Generator_UserColumnName="BerlakuSampai" msprop:Generator_ColumnPropNameInTable="BerlakuSampaiColumn" msprop:Generator_ColumnPropNameInRow="BerlakuSampai" msprop:Generator_ColumnVarNameInTable="columnBerlakuSampai" type="xs:dateTime" />
+              <xs:element name="Deskripsi" msprop:Generator_UserColumnName="Deskripsi" msprop:Generator_ColumnPropNameInTable="DeskripsiColumn" msprop:Generator_ColumnPropNameInRow="Deskripsi" msprop:Generator_ColumnVarNameInTable="columnDeskripsi">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -771,26 +789,26 @@ SELECT ID, AkunID, TanggalTransaksi, JadwalPenerbanganID, JumlahPenumpang, Total
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Maskapai" msprop:Generator_RowEvHandlerName="MaskapaiRowChangeEventHandler" msprop:Generator_RowDeletedName="MaskapaiRowDeleted" msprop:Generator_RowDeletingName="MaskapaiRowDeleting" msprop:Generator_RowEvArgName="MaskapaiRowChangeEvent" msprop:Generator_TablePropName="Maskapai" msprop:Generator_RowChangedName="MaskapaiRowChanged" msprop:Generator_RowChangingName="MaskapaiRowChanging" msprop:Generator_TableClassName="MaskapaiDataTable" msprop:Generator_RowClassName="MaskapaiRow" msprop:Generator_TableVarName="tableMaskapai" msprop:Generator_UserTableName="Maskapai">
+        <xs:element name="Maskapai" msprop:Generator_RowClassName="MaskapaiRow" msprop:Generator_RowEvHandlerName="MaskapaiRowChangeEventHandler" msprop:Generator_RowDeletedName="MaskapaiRowDeleted" msprop:Generator_RowDeletingName="MaskapaiRowDeleting" msprop:Generator_RowEvArgName="MaskapaiRowChangeEvent" msprop:Generator_TablePropName="Maskapai" msprop:Generator_RowChangedName="MaskapaiRowChanged" msprop:Generator_UserTableName="Maskapai" msprop:Generator_RowChangingName="MaskapaiRowChanging" msprop:Generator_TableClassName="MaskapaiDataTable" msprop:Generator_TableVarName="tableMaskapai">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="Nama" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn" msprop:Generator_ColumnVarNameInTable="columnNama" msprop:Generator_UserColumnName="Nama">
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="Nama" msprop:Generator_UserColumnName="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnVarNameInTable="columnNama">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Perusahaan" msprop:Generator_ColumnPropNameInRow="Perusahaan" msprop:Generator_ColumnPropNameInTable="PerusahaanColumn" msprop:Generator_ColumnVarNameInTable="columnPerusahaan" msprop:Generator_UserColumnName="Perusahaan">
+              <xs:element name="Perusahaan" msprop:Generator_UserColumnName="Perusahaan" msprop:Generator_ColumnPropNameInTable="PerusahaanColumn" msprop:Generator_ColumnPropNameInRow="Perusahaan" msprop:Generator_ColumnVarNameInTable="columnPerusahaan">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="JumlahKru" msprop:Generator_ColumnPropNameInRow="JumlahKru" msprop:Generator_ColumnPropNameInTable="JumlahKruColumn" msprop:Generator_ColumnVarNameInTable="columnJumlahKru" msprop:Generator_UserColumnName="JumlahKru" type="xs:int" />
-              <xs:element name="Deskripsi" msprop:Generator_ColumnPropNameInRow="Deskripsi" msprop:Generator_ColumnPropNameInTable="DeskripsiColumn" msprop:Generator_ColumnVarNameInTable="columnDeskripsi" msprop:Generator_UserColumnName="Deskripsi">
+              <xs:element name="JumlahKru" msprop:Generator_UserColumnName="JumlahKru" msprop:Generator_ColumnPropNameInTable="JumlahKruColumn" msprop:Generator_ColumnPropNameInRow="JumlahKru" msprop:Generator_ColumnVarNameInTable="columnJumlahKru" type="xs:int" />
+              <xs:element name="Deskripsi" msprop:Generator_UserColumnName="Deskripsi" msprop:Generator_ColumnPropNameInTable="DeskripsiColumn" msprop:Generator_ColumnPropNameInRow="Deskripsi" msprop:Generator_ColumnVarNameInTable="columnDeskripsi">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -800,43 +818,18 @@ SELECT ID, AkunID, TanggalTransaksi, JadwalPenerbanganID, JumlahPenumpang, Total
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Negara" msprop:Generator_RowEvHandlerName="NegaraRowChangeEventHandler" msprop:Generator_RowDeletedName="NegaraRowDeleted" msprop:Generator_RowDeletingName="NegaraRowDeleting" msprop:Generator_RowEvArgName="NegaraRowChangeEvent" msprop:Generator_TablePropName="Negara" msprop:Generator_RowChangedName="NegaraRowChanged" msprop:Generator_RowChangingName="NegaraRowChanging" msprop:Generator_TableClassName="NegaraDataTable" msprop:Generator_RowClassName="NegaraRow" msprop:Generator_TableVarName="tableNegara" msprop:Generator_UserTableName="Negara">
+        <xs:element name="Negara" msprop:Generator_RowClassName="NegaraRow" msprop:Generator_RowEvHandlerName="NegaraRowChangeEventHandler" msprop:Generator_RowDeletedName="NegaraRowDeleted" msprop:Generator_RowDeletingName="NegaraRowDeleting" msprop:Generator_RowEvArgName="NegaraRowChangeEvent" msprop:Generator_TablePropName="Negara" msprop:Generator_RowChangedName="NegaraRowChanged" msprop:Generator_UserTableName="Negara" msprop:Generator_RowChangingName="NegaraRowChanging" msprop:Generator_TableClassName="NegaraDataTable" msprop:Generator_TableVarName="tableNegara">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="Nama" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn" msprop:Generator_ColumnVarNameInTable="columnNama" msprop:Generator_UserColumnName="Nama">
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="Nama" msprop:Generator_UserColumnName="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnVarNameInTable="columnNama">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="IbukotaNegara" msprop:Generator_ColumnPropNameInRow="IbukotaNegara" msprop:Generator_ColumnPropNameInTable="IbukotaNegaraColumn" msprop:Generator_ColumnVarNameInTable="columnIbukotaNegara" msprop:Generator_UserColumnName="IbukotaNegara">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="200" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="PerubahanStatusJadwalPenerbangan" msprop:Generator_RowEvHandlerName="PerubahanStatusJadwalPenerbanganRowChangeEventHandler" msprop:Generator_RowDeletedName="PerubahanStatusJadwalPenerbanganRowDeleted" msprop:Generator_RowDeletingName="PerubahanStatusJadwalPenerbanganRowDeleting" msprop:Generator_RowEvArgName="PerubahanStatusJadwalPenerbanganRowChangeEvent" msprop:Generator_TablePropName="PerubahanStatusJadwalPenerbangan" msprop:Generator_RowChangedName="PerubahanStatusJadwalPenerbanganRowChanged" msprop:Generator_RowChangingName="PerubahanStatusJadwalPenerbanganRowChanging" msprop:Generator_TableClassName="PerubahanStatusJadwalPenerbanganDataTable" msprop:Generator_RowClassName="PerubahanStatusJadwalPenerbanganRow" msprop:Generator_TableVarName="tablePerubahanStatusJadwalPenerbangan" msprop:Generator_UserTableName="PerubahanStatusJadwalPenerbangan">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="JadwalPenerbanganID" msprop:Generator_ColumnPropNameInRow="JadwalPenerbanganID" msprop:Generator_ColumnPropNameInTable="JadwalPenerbanganIDColumn" msprop:Generator_ColumnVarNameInTable="columnJadwalPenerbanganID" msprop:Generator_UserColumnName="JadwalPenerbanganID" type="xs:int" />
-              <xs:element name="StatusPenerbanganID" msprop:Generator_ColumnPropNameInRow="StatusPenerbanganID" msprop:Generator_ColumnPropNameInTable="StatusPenerbanganIDColumn" msprop:Generator_ColumnVarNameInTable="columnStatusPenerbanganID" msprop:Generator_UserColumnName="StatusPenerbanganID" type="xs:int" />
-              <xs:element name="WaktuPerubahanTerjadi" msprop:Generator_ColumnPropNameInRow="WaktuPerubahanTerjadi" msprop:Generator_ColumnPropNameInTable="WaktuPerubahanTerjadiColumn" msprop:Generator_ColumnVarNameInTable="columnWaktuPerubahanTerjadi" msprop:Generator_UserColumnName="WaktuPerubahanTerjadi" type="xs:dateTime" />
-              <xs:element name="PerkiraanDurasiDelay" msprop:Generator_ColumnPropNameInRow="PerkiraanDurasiDelay" msprop:Generator_ColumnPropNameInTable="PerkiraanDurasiDelayColumn" msprop:Generator_ColumnVarNameInTable="columnPerkiraanDurasiDelay" msprop:Generator_UserColumnName="PerkiraanDurasiDelay" type="xs:int" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="StatusPenerbangan" msprop:Generator_RowEvHandlerName="StatusPenerbanganRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusPenerbanganRowDeleted" msprop:Generator_RowDeletingName="StatusPenerbanganRowDeleting" msprop:Generator_RowEvArgName="StatusPenerbanganRowChangeEvent" msprop:Generator_TablePropName="StatusPenerbangan" msprop:Generator_RowChangedName="StatusPenerbanganRowChanged" msprop:Generator_RowChangingName="StatusPenerbanganRowChanging" msprop:Generator_TableClassName="StatusPenerbanganDataTable" msprop:Generator_RowClassName="StatusPenerbanganRow" msprop:Generator_TableVarName="tableStatusPenerbangan" msprop:Generator_UserTableName="StatusPenerbangan">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="Nama" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn" msprop:Generator_ColumnVarNameInTable="columnNama" msprop:Generator_UserColumnName="Nama">
+              <xs:element name="IbukotaNegara" msprop:Generator_UserColumnName="IbukotaNegara" msprop:Generator_ColumnPropNameInTable="IbukotaNegaraColumn" msprop:Generator_ColumnPropNameInRow="IbukotaNegara" msprop:Generator_ColumnVarNameInTable="columnIbukotaNegara">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
@@ -846,19 +839,44 @@ SELECT ID, AkunID, TanggalTransaksi, JadwalPenerbanganID, JumlahPenumpang, Total
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TransaksiDetail" msprop:Generator_RowEvHandlerName="TransaksiDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="TransaksiDetailRowDeleted" msprop:Generator_RowDeletingName="TransaksiDetailRowDeleting" msprop:Generator_RowEvArgName="TransaksiDetailRowChangeEvent" msprop:Generator_TablePropName="TransaksiDetail" msprop:Generator_RowChangedName="TransaksiDetailRowChanged" msprop:Generator_RowChangingName="TransaksiDetailRowChanging" msprop:Generator_TableClassName="TransaksiDetailDataTable" msprop:Generator_RowClassName="TransaksiDetailRow" msprop:Generator_TableVarName="tableTransaksiDetail" msprop:Generator_UserTableName="TransaksiDetail">
+        <xs:element name="PerubahanStatusJadwalPenerbangan" msprop:Generator_RowClassName="PerubahanStatusJadwalPenerbanganRow" msprop:Generator_RowEvHandlerName="PerubahanStatusJadwalPenerbanganRowChangeEventHandler" msprop:Generator_RowDeletedName="PerubahanStatusJadwalPenerbanganRowDeleted" msprop:Generator_RowDeletingName="PerubahanStatusJadwalPenerbanganRowDeleting" msprop:Generator_RowEvArgName="PerubahanStatusJadwalPenerbanganRowChangeEvent" msprop:Generator_TablePropName="PerubahanStatusJadwalPenerbangan" msprop:Generator_RowChangedName="PerubahanStatusJadwalPenerbanganRowChanged" msprop:Generator_UserTableName="PerubahanStatusJadwalPenerbangan" msprop:Generator_RowChangingName="PerubahanStatusJadwalPenerbanganRowChanging" msprop:Generator_TableClassName="PerubahanStatusJadwalPenerbanganDataTable" msprop:Generator_TableVarName="tablePerubahanStatusJadwalPenerbangan">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="TransaksiHeaderID" msprop:Generator_ColumnPropNameInRow="TransaksiHeaderID" msprop:Generator_ColumnPropNameInTable="TransaksiHeaderIDColumn" msprop:Generator_ColumnVarNameInTable="columnTransaksiHeaderID" msprop:Generator_UserColumnName="TransaksiHeaderID" type="xs:int" />
-              <xs:element name="TitelPenumpang" msprop:Generator_ColumnPropNameInRow="TitelPenumpang" msprop:Generator_ColumnPropNameInTable="TitelPenumpangColumn" msprop:Generator_ColumnVarNameInTable="columnTitelPenumpang" msprop:Generator_UserColumnName="TitelPenumpang">
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="JadwalPenerbanganID" msprop:Generator_UserColumnName="JadwalPenerbanganID" msprop:Generator_ColumnPropNameInTable="JadwalPenerbanganIDColumn" msprop:Generator_ColumnPropNameInRow="JadwalPenerbanganID" msprop:Generator_ColumnVarNameInTable="columnJadwalPenerbanganID" type="xs:int" />
+              <xs:element name="StatusPenerbanganID" msprop:Generator_UserColumnName="StatusPenerbanganID" msprop:Generator_ColumnPropNameInTable="StatusPenerbanganIDColumn" msprop:Generator_ColumnPropNameInRow="StatusPenerbanganID" msprop:Generator_ColumnVarNameInTable="columnStatusPenerbanganID" type="xs:int" />
+              <xs:element name="WaktuPerubahanTerjadi" msprop:Generator_UserColumnName="WaktuPerubahanTerjadi" msprop:Generator_ColumnPropNameInTable="WaktuPerubahanTerjadiColumn" msprop:Generator_ColumnPropNameInRow="WaktuPerubahanTerjadi" msprop:Generator_ColumnVarNameInTable="columnWaktuPerubahanTerjadi" type="xs:dateTime" />
+              <xs:element name="PerkiraanDurasiDelay" msprop:Generator_UserColumnName="PerkiraanDurasiDelay" msprop:Generator_ColumnPropNameInTable="PerkiraanDurasiDelayColumn" msprop:Generator_ColumnPropNameInRow="PerkiraanDurasiDelay" msprop:Generator_ColumnVarNameInTable="columnPerkiraanDurasiDelay" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="StatusPenerbangan" msprop:Generator_RowClassName="StatusPenerbanganRow" msprop:Generator_RowEvHandlerName="StatusPenerbanganRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusPenerbanganRowDeleted" msprop:Generator_RowDeletingName="StatusPenerbanganRowDeleting" msprop:Generator_RowEvArgName="StatusPenerbanganRowChangeEvent" msprop:Generator_TablePropName="StatusPenerbangan" msprop:Generator_RowChangedName="StatusPenerbanganRowChanged" msprop:Generator_UserTableName="StatusPenerbangan" msprop:Generator_RowChangingName="StatusPenerbanganRowChanging" msprop:Generator_TableClassName="StatusPenerbanganDataTable" msprop:Generator_TableVarName="tableStatusPenerbangan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="Nama" msprop:Generator_UserColumnName="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnVarNameInTable="columnNama">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TransaksiDetail" msprop:Generator_RowClassName="TransaksiDetailRow" msprop:Generator_RowEvHandlerName="TransaksiDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="TransaksiDetailRowDeleted" msprop:Generator_RowDeletingName="TransaksiDetailRowDeleting" msprop:Generator_RowEvArgName="TransaksiDetailRowChangeEvent" msprop:Generator_TablePropName="TransaksiDetail" msprop:Generator_RowChangedName="TransaksiDetailRowChanged" msprop:Generator_UserTableName="TransaksiDetail" msprop:Generator_RowChangingName="TransaksiDetailRowChanging" msprop:Generator_TableClassName="TransaksiDetailDataTable" msprop:Generator_TableVarName="tableTransaksiDetail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="TransaksiHeaderID" msprop:Generator_UserColumnName="TransaksiHeaderID" msprop:Generator_ColumnPropNameInTable="TransaksiHeaderIDColumn" msprop:Generator_ColumnPropNameInRow="TransaksiHeaderID" msprop:Generator_ColumnVarNameInTable="columnTransaksiHeaderID" type="xs:int" />
+              <xs:element name="TitelPenumpang" msprop:Generator_UserColumnName="TitelPenumpang" msprop:Generator_ColumnPropNameInTable="TitelPenumpangColumn" msprop:Generator_ColumnPropNameInRow="TitelPenumpang" msprop:Generator_ColumnVarNameInTable="columnTitelPenumpang">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NamaLengkapPenumpang" msprop:Generator_ColumnPropNameInRow="NamaLengkapPenumpang" msprop:Generator_ColumnPropNameInTable="NamaLengkapPenumpangColumn" msprop:Generator_ColumnVarNameInTable="columnNamaLengkapPenumpang" msprop:Generator_UserColumnName="NamaLengkapPenumpang">
+              <xs:element name="NamaLengkapPenumpang" msprop:Generator_UserColumnName="NamaLengkapPenumpang" msprop:Generator_ColumnPropNameInTable="NamaLengkapPenumpangColumn" msprop:Generator_ColumnPropNameInRow="NamaLengkapPenumpang" msprop:Generator_ColumnVarNameInTable="columnNamaLengkapPenumpang">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
@@ -868,16 +886,16 @@ SELECT ID, AkunID, TanggalTransaksi, JadwalPenerbanganID, JumlahPenumpang, Total
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TransaksiHeader" msprop:Generator_RowEvHandlerName="TransaksiHeaderRowChangeEventHandler" msprop:Generator_RowDeletedName="TransaksiHeaderRowDeleted" msprop:Generator_RowDeletingName="TransaksiHeaderRowDeleting" msprop:Generator_RowEvArgName="TransaksiHeaderRowChangeEvent" msprop:Generator_TablePropName="TransaksiHeader" msprop:Generator_RowChangedName="TransaksiHeaderRowChanged" msprop:Generator_RowChangingName="TransaksiHeaderRowChanging" msprop:Generator_TableClassName="TransaksiHeaderDataTable" msprop:Generator_RowClassName="TransaksiHeaderRow" msprop:Generator_TableVarName="tableTransaksiHeader" msprop:Generator_UserTableName="TransaksiHeader">
+        <xs:element name="TransaksiHeader" msprop:Generator_RowClassName="TransaksiHeaderRow" msprop:Generator_RowEvHandlerName="TransaksiHeaderRowChangeEventHandler" msprop:Generator_RowDeletedName="TransaksiHeaderRowDeleted" msprop:Generator_RowDeletingName="TransaksiHeaderRowDeleting" msprop:Generator_RowEvArgName="TransaksiHeaderRowChangeEvent" msprop:Generator_TablePropName="TransaksiHeader" msprop:Generator_RowChangedName="TransaksiHeaderRowChanged" msprop:Generator_UserTableName="TransaksiHeader" msprop:Generator_RowChangingName="TransaksiHeaderRowChanging" msprop:Generator_TableClassName="TransaksiHeaderDataTable" msprop:Generator_TableVarName="tableTransaksiHeader">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="AkunID" msprop:Generator_ColumnPropNameInRow="AkunID" msprop:Generator_ColumnPropNameInTable="AkunIDColumn" msprop:Generator_ColumnVarNameInTable="columnAkunID" msprop:Generator_UserColumnName="AkunID" type="xs:int" />
-              <xs:element name="TanggalTransaksi" msprop:Generator_ColumnPropNameInRow="TanggalTransaksi" msprop:Generator_ColumnPropNameInTable="TanggalTransaksiColumn" msprop:Generator_ColumnVarNameInTable="columnTanggalTransaksi" msprop:Generator_UserColumnName="TanggalTransaksi" type="xs:dateTime" />
-              <xs:element name="JadwalPenerbanganID" msprop:Generator_ColumnPropNameInRow="JadwalPenerbanganID" msprop:Generator_ColumnPropNameInTable="JadwalPenerbanganIDColumn" msprop:Generator_ColumnVarNameInTable="columnJadwalPenerbanganID" msprop:Generator_UserColumnName="JadwalPenerbanganID" type="xs:int" />
-              <xs:element name="JumlahPenumpang" msprop:Generator_ColumnPropNameInRow="JumlahPenumpang" msprop:Generator_ColumnPropNameInTable="JumlahPenumpangColumn" msprop:Generator_ColumnVarNameInTable="columnJumlahPenumpang" msprop:Generator_UserColumnName="JumlahPenumpang" type="xs:int" />
-              <xs:element name="TotalHarga" msprop:Generator_ColumnPropNameInRow="TotalHarga" msprop:Generator_ColumnPropNameInTable="TotalHargaColumn" msprop:Generator_ColumnVarNameInTable="columnTotalHarga" msprop:Generator_UserColumnName="TotalHarga" type="xs:double" />
-              <xs:element name="KodePromoID" msprop:Generator_ColumnPropNameInRow="KodePromoID" msprop:Generator_ColumnPropNameInTable="KodePromoIDColumn" msprop:Generator_ColumnVarNameInTable="columnKodePromoID" msprop:Generator_UserColumnName="KodePromoID" type="xs:int" minOccurs="0" />
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="AkunID" msprop:Generator_UserColumnName="AkunID" msprop:Generator_ColumnPropNameInTable="AkunIDColumn" msprop:Generator_ColumnPropNameInRow="AkunID" msprop:Generator_ColumnVarNameInTable="columnAkunID" type="xs:int" />
+              <xs:element name="TanggalTransaksi" msprop:Generator_UserColumnName="TanggalTransaksi" msprop:Generator_ColumnPropNameInTable="TanggalTransaksiColumn" msprop:Generator_ColumnPropNameInRow="TanggalTransaksi" msprop:Generator_ColumnVarNameInTable="columnTanggalTransaksi" type="xs:dateTime" />
+              <xs:element name="JadwalPenerbanganID" msprop:Generator_UserColumnName="JadwalPenerbanganID" msprop:Generator_ColumnPropNameInTable="JadwalPenerbanganIDColumn" msprop:Generator_ColumnPropNameInRow="JadwalPenerbanganID" msprop:Generator_ColumnVarNameInTable="columnJadwalPenerbanganID" type="xs:int" />
+              <xs:element name="JumlahPenumpang" msprop:Generator_UserColumnName="JumlahPenumpang" msprop:Generator_ColumnPropNameInTable="JumlahPenumpangColumn" msprop:Generator_ColumnPropNameInRow="JumlahPenumpang" msprop:Generator_ColumnVarNameInTable="columnJumlahPenumpang" type="xs:int" />
+              <xs:element name="TotalHarga" msprop:Generator_UserColumnName="TotalHarga" msprop:Generator_ColumnPropNameInTable="TotalHargaColumn" msprop:Generator_ColumnPropNameInRow="TotalHarga" msprop:Generator_ColumnVarNameInTable="columnTotalHarga" type="xs:double" />
+              <xs:element name="KodePromoID" msprop:Generator_UserColumnName="KodePromoID" msprop:Generator_ColumnPropNameInTable="KodePromoIDColumn" msprop:Generator_ColumnPropNameInRow="KodePromoID" msprop:Generator_ColumnVarNameInTable="columnKodePromoID" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -926,16 +944,16 @@ SELECT ID, AkunID, TanggalTransaksi, JadwalPenerbanganID, JumlahPenumpang, Total
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_NegaraID_Bandara_Negara" msdata:parent="Negara" msdata:child="Bandara" msdata:parentkey="ID" msdata:childkey="NegaraID" msprop:Generator_UserParentTable="Negara" msprop:Generator_UserChildTable="Bandara" msprop:Generator_RelationVarName="relationFK_NegaraID_Bandara_Negara" msprop:Generator_UserRelationName="FK_NegaraID_Bandara_Negara" msprop:Generator_ChildPropName="GetBandaraRows" msprop:Generator_ParentPropName="NegaraRow" />
-      <msdata:Relationship name="FK_BandaraKeberangkatanID_JadwalPenerbangan_Bandara" msdata:parent="Bandara" msdata:child="JadwalPenerbangan" msdata:parentkey="ID" msdata:childkey="BandaraKeberangkatanID" msprop:Generator_UserParentTable="Bandara" msprop:Generator_UserChildTable="JadwalPenerbangan" msprop:Generator_RelationVarName="relationFK_BandaraKeberangkatanID_JadwalPenerbangan_Bandara" msprop:Generator_ChildPropName="GetJadwalPenerbanganRowsByFK_BandaraKeberangkatanID_JadwalPenerbangan_Bandara" msprop:Generator_ParentPropName="BandaraRowByFK_BandaraKeberangkatanID_JadwalPenerbangan_Bandara" msprop:Generator_UserRelationName="FK_BandaraKeberangkatanID_JadwalPenerbangan_Bandara" />
-      <msdata:Relationship name="FK_BandaraTujuanID_JadwalPenerbangan_Bandara" msdata:parent="Bandara" msdata:child="JadwalPenerbangan" msdata:parentkey="ID" msdata:childkey="BandaraTujuanID" msprop:Generator_UserParentTable="Bandara" msprop:Generator_UserChildTable="JadwalPenerbangan" msprop:Generator_RelationVarName="relationFK_BandaraTujuanID_JadwalPenerbangan_Bandara" msprop:Generator_ChildPropName="GetJadwalPenerbanganRowsByFK_BandaraTujuanID_JadwalPenerbangan_Bandara" msprop:Generator_ParentPropName="BandaraRowByFK_BandaraTujuanID_JadwalPenerbangan_Bandara" msprop:Generator_UserRelationName="FK_BandaraTujuanID_JadwalPenerbangan_Bandara" />
-      <msdata:Relationship name="FK_MaskapaiID_JadwalPenerbangan_Maskapai" msdata:parent="Maskapai" msdata:child="JadwalPenerbangan" msdata:parentkey="ID" msdata:childkey="MaskapaiID" msprop:Generator_UserParentTable="Maskapai" msprop:Generator_UserChildTable="JadwalPenerbangan" msprop:Generator_RelationVarName="relationFK_MaskapaiID_JadwalPenerbangan_Maskapai" msprop:Generator_UserRelationName="FK_MaskapaiID_JadwalPenerbangan_Maskapai" msprop:Generator_ChildPropName="GetJadwalPenerbanganRows" msprop:Generator_ParentPropName="MaskapaiRow" />
-      <msdata:Relationship name="FK_JadwalPenerbanganID_PerubahanStatusJadwalPenerbangan_JadwalPenerbangan" msdata:parent="JadwalPenerbangan" msdata:child="PerubahanStatusJadwalPenerbangan" msdata:parentkey="ID" msdata:childkey="JadwalPenerbanganID" msprop:Generator_UserParentTable="JadwalPenerbangan" msprop:Generator_UserChildTable="PerubahanStatusJadwalPenerbangan" msprop:Generator_RelationVarName="relationFK_JadwalPenerbanganID_PerubahanStatusJadwalPenerbangan_JadwalPenerbangan" msprop:Generator_ChildPropName="GetPerubahanStatusJadwalPenerbanganRows" msprop:Generator_ParentPropName="JadwalPenerbanganRow" msprop:Generator_UserRelationName="FK_JadwalPenerbanganID_PerubahanStatusJadwalPenerbangan_JadwalPenerbangan" />
-      <msdata:Relationship name="FK_StatusPenerbanganID_PerubahanStatusJadwalPenerbangan_StatusPenerbangan" msdata:parent="StatusPenerbangan" msdata:child="PerubahanStatusJadwalPenerbangan" msdata:parentkey="ID" msdata:childkey="StatusPenerbanganID" msprop:Generator_UserParentTable="StatusPenerbangan" msprop:Generator_UserChildTable="PerubahanStatusJadwalPenerbangan" msprop:Generator_RelationVarName="relationFK_StatusPenerbanganID_PerubahanStatusJadwalPenerbangan_StatusPenerbangan" msprop:Generator_UserRelationName="FK_StatusPenerbanganID_PerubahanStatusJadwalPenerbangan_StatusPenerbangan" msprop:Generator_ChildPropName="GetPerubahanStatusJadwalPenerbanganRows" msprop:Generator_ParentPropName="StatusPenerbanganRow" />
-      <msdata:Relationship name="FK_TransaksiHeaderID_TransaksiDetail_TransaksiHeader" msdata:parent="TransaksiHeader" msdata:child="TransaksiDetail" msdata:parentkey="ID" msdata:childkey="TransaksiHeaderID" msprop:Generator_UserParentTable="TransaksiHeader" msprop:Generator_UserChildTable="TransaksiDetail" msprop:Generator_RelationVarName="relationFK_TransaksiHeaderID_TransaksiDetail_TransaksiHeader" msprop:Generator_UserRelationName="FK_TransaksiHeaderID_TransaksiDetail_TransaksiHeader" msprop:Generator_ChildPropName="GetTransaksiDetailRows" msprop:Generator_ParentPropName="TransaksiHeaderRow" />
-      <msdata:Relationship name="FK_AkunID_TransaksiHeader_Akun" msdata:parent="Akun" msdata:child="TransaksiHeader" msdata:parentkey="ID" msdata:childkey="AkunID" msprop:Generator_UserParentTable="Akun" msprop:Generator_UserChildTable="TransaksiHeader" msprop:Generator_RelationVarName="relationFK_AkunID_TransaksiHeader_Akun" msprop:Generator_ChildPropName="GetTransaksiHeaderRows" msprop:Generator_ParentPropName="AkunRow" msprop:Generator_UserRelationName="FK_AkunID_TransaksiHeader_Akun" />
-      <msdata:Relationship name="FK_JadwalPenerbanganID_TransaksiHeader_JadwalPenerbangan" msdata:parent="JadwalPenerbangan" msdata:child="TransaksiHeader" msdata:parentkey="ID" msdata:childkey="JadwalPenerbanganID" msprop:Generator_UserParentTable="JadwalPenerbangan" msprop:Generator_UserChildTable="TransaksiHeader" msprop:Generator_RelationVarName="relationFK_JadwalPenerbanganID_TransaksiHeader_JadwalPenerbangan" msprop:Generator_ChildPropName="GetTransaksiHeaderRows" msprop:Generator_ParentPropName="JadwalPenerbanganRow" msprop:Generator_UserRelationName="FK_JadwalPenerbanganID_TransaksiHeader_JadwalPenerbangan" />
-      <msdata:Relationship name="FK_KodePromoID_TransaksiHeader_KodePromo" msdata:parent="KodePromo" msdata:child="TransaksiHeader" msdata:parentkey="ID" msdata:childkey="KodePromoID" msprop:Generator_UserParentTable="KodePromo" msprop:Generator_UserChildTable="TransaksiHeader" msprop:Generator_RelationVarName="relationFK_KodePromoID_TransaksiHeader_KodePromo" msprop:Generator_ChildPropName="GetTransaksiHeaderRows" msprop:Generator_ParentPropName="KodePromoRow" msprop:Generator_UserRelationName="FK_KodePromoID_TransaksiHeader_KodePromo" />
+      <msdata:Relationship name="FK_NegaraID_Bandara_Negara" msdata:parent="Negara" msdata:child="Bandara" msdata:parentkey="ID" msdata:childkey="NegaraID" msprop:Generator_UserParentTable="Negara" msprop:Generator_UserChildTable="Bandara" msprop:Generator_RelationVarName="relationFK_NegaraID_Bandara_Negara" msprop:Generator_ChildPropName="GetBandaraRows" msprop:Generator_ParentPropName="NegaraRow" msprop:Generator_UserRelationName="FK_NegaraID_Bandara_Negara" />
+      <msdata:Relationship name="FK_BandaraKeberangkatanID_JadwalPenerbangan_Bandara" msdata:parent="Bandara" msdata:child="JadwalPenerbangan" msdata:parentkey="ID" msdata:childkey="BandaraKeberangkatanID" msprop:Generator_UserParentTable="Bandara" msprop:Generator_UserChildTable="JadwalPenerbangan" msprop:Generator_RelationVarName="relationFK_BandaraKeberangkatanID_JadwalPenerbangan_Bandara" msprop:Generator_ChildPropName="GetJadwalPenerbanganRowsByFK_BandaraKeberangkatanID_JadwalPenerbangan_Bandara" msprop:Generator_UserRelationName="FK_BandaraKeberangkatanID_JadwalPenerbangan_Bandara" msprop:Generator_ParentPropName="BandaraRowByFK_BandaraKeberangkatanID_JadwalPenerbangan_Bandara" />
+      <msdata:Relationship name="FK_BandaraTujuanID_JadwalPenerbangan_Bandara" msdata:parent="Bandara" msdata:child="JadwalPenerbangan" msdata:parentkey="ID" msdata:childkey="BandaraTujuanID" msprop:Generator_UserParentTable="Bandara" msprop:Generator_UserChildTable="JadwalPenerbangan" msprop:Generator_RelationVarName="relationFK_BandaraTujuanID_JadwalPenerbangan_Bandara" msprop:Generator_ChildPropName="GetJadwalPenerbanganRowsByFK_BandaraTujuanID_JadwalPenerbangan_Bandara" msprop:Generator_UserRelationName="FK_BandaraTujuanID_JadwalPenerbangan_Bandara" msprop:Generator_ParentPropName="BandaraRowByFK_BandaraTujuanID_JadwalPenerbangan_Bandara" />
+      <msdata:Relationship name="FK_MaskapaiID_JadwalPenerbangan_Maskapai" msdata:parent="Maskapai" msdata:child="JadwalPenerbangan" msdata:parentkey="ID" msdata:childkey="MaskapaiID" msprop:Generator_UserParentTable="Maskapai" msprop:Generator_UserChildTable="JadwalPenerbangan" msprop:Generator_RelationVarName="relationFK_MaskapaiID_JadwalPenerbangan_Maskapai" msprop:Generator_ChildPropName="GetJadwalPenerbanganRows" msprop:Generator_ParentPropName="MaskapaiRow" msprop:Generator_UserRelationName="FK_MaskapaiID_JadwalPenerbangan_Maskapai" />
+      <msdata:Relationship name="FK_JadwalPenerbanganID_PerubahanStatusJadwalPenerbangan_JadwalPenerbangan" msdata:parent="JadwalPenerbangan" msdata:child="PerubahanStatusJadwalPenerbangan" msdata:parentkey="ID" msdata:childkey="JadwalPenerbanganID" msprop:Generator_UserParentTable="JadwalPenerbangan" msprop:Generator_UserChildTable="PerubahanStatusJadwalPenerbangan" msprop:Generator_RelationVarName="relationFK_JadwalPenerbanganID_PerubahanStatusJadwalPenerbangan_JadwalPenerbangan" msprop:Generator_ChildPropName="GetPerubahanStatusJadwalPenerbanganRows" msprop:Generator_UserRelationName="FK_JadwalPenerbanganID_PerubahanStatusJadwalPenerbangan_JadwalPenerbangan" msprop:Generator_ParentPropName="JadwalPenerbanganRow" />
+      <msdata:Relationship name="FK_StatusPenerbanganID_PerubahanStatusJadwalPenerbangan_StatusPenerbangan" msdata:parent="StatusPenerbangan" msdata:child="PerubahanStatusJadwalPenerbangan" msdata:parentkey="ID" msdata:childkey="StatusPenerbanganID" msprop:Generator_UserParentTable="StatusPenerbangan" msprop:Generator_UserChildTable="PerubahanStatusJadwalPenerbangan" msprop:Generator_RelationVarName="relationFK_StatusPenerbanganID_PerubahanStatusJadwalPenerbangan_StatusPenerbangan" msprop:Generator_ChildPropName="GetPerubahanStatusJadwalPenerbanganRows" msprop:Generator_ParentPropName="StatusPenerbanganRow" msprop:Generator_UserRelationName="FK_StatusPenerbanganID_PerubahanStatusJadwalPenerbangan_StatusPenerbangan" />
+      <msdata:Relationship name="FK_TransaksiHeaderID_TransaksiDetail_TransaksiHeader" msdata:parent="TransaksiHeader" msdata:child="TransaksiDetail" msdata:parentkey="ID" msdata:childkey="TransaksiHeaderID" msprop:Generator_UserParentTable="TransaksiHeader" msprop:Generator_UserChildTable="TransaksiDetail" msprop:Generator_RelationVarName="relationFK_TransaksiHeaderID_TransaksiDetail_TransaksiHeader" msprop:Generator_ChildPropName="GetTransaksiDetailRows" msprop:Generator_ParentPropName="TransaksiHeaderRow" msprop:Generator_UserRelationName="FK_TransaksiHeaderID_TransaksiDetail_TransaksiHeader" />
+      <msdata:Relationship name="FK_AkunID_TransaksiHeader_Akun" msdata:parent="Akun" msdata:child="TransaksiHeader" msdata:parentkey="ID" msdata:childkey="AkunID" msprop:Generator_UserParentTable="Akun" msprop:Generator_UserChildTable="TransaksiHeader" msprop:Generator_RelationVarName="relationFK_AkunID_TransaksiHeader_Akun" msprop:Generator_ChildPropName="GetTransaksiHeaderRows" msprop:Generator_UserRelationName="FK_AkunID_TransaksiHeader_Akun" msprop:Generator_ParentPropName="AkunRow" />
+      <msdata:Relationship name="FK_JadwalPenerbanganID_TransaksiHeader_JadwalPenerbangan" msdata:parent="JadwalPenerbangan" msdata:child="TransaksiHeader" msdata:parentkey="ID" msdata:childkey="JadwalPenerbanganID" msprop:Generator_UserParentTable="JadwalPenerbangan" msprop:Generator_UserChildTable="TransaksiHeader" msprop:Generator_RelationVarName="relationFK_JadwalPenerbanganID_TransaksiHeader_JadwalPenerbangan" msprop:Generator_ChildPropName="GetTransaksiHeaderRows" msprop:Generator_UserRelationName="FK_JadwalPenerbanganID_TransaksiHeader_JadwalPenerbangan" msprop:Generator_ParentPropName="JadwalPenerbanganRow" />
+      <msdata:Relationship name="FK_KodePromoID_TransaksiHeader_KodePromo" msdata:parent="KodePromo" msdata:child="TransaksiHeader" msdata:parentkey="ID" msdata:childkey="KodePromoID" msprop:Generator_UserParentTable="KodePromo" msprop:Generator_UserChildTable="TransaksiHeader" msprop:Generator_RelationVarName="relationFK_KodePromoID_TransaksiHeader_KodePromo" msprop:Generator_ChildPropName="GetTransaksiHeaderRows" msprop:Generator_UserRelationName="FK_KodePromoID_TransaksiHeader_KodePromo" msprop:Generator_ParentPropName="KodePromoRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

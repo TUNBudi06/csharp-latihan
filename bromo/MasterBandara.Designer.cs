@@ -32,12 +32,6 @@
             this.label_master = new System.Windows.Forms.Label();
             this.label_informasi = new System.Windows.Forms.Label();
             this.BandaraGV = new System.Windows.Forms.DataGridView();
-            this.bandaraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bromoAirlinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bromoAirlines = new bromo.BromoAirlines();
-            this.bromoAirlinesDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.bromoAirlinesDataSet = new bromo.BromoAirlinesDataSet();
-            this.bromoAirlinesDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bandaraTableAdapter = new bromo.BromoAirlinesTableAdapters.BandaraTableAdapter();
             this.label_nama = new System.Windows.Forms.Label();
             this.label_kodeIATA = new System.Windows.Forms.Label();
@@ -46,24 +40,22 @@
             this.textBox_nama = new System.Windows.Forms.TextBox();
             this.textBox_kodeIATA = new System.Windows.Forms.TextBox();
             this.textBox_kota = new System.Windows.Forms.TextBox();
-            this.comboBox_Negara = new System.Windows.Forms.ComboBox();
-            this.negaraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.negaraTableAdapter = new bromo.BromoAirlinesTableAdapters.NegaraTableAdapter();
             this.label_terminal = new System.Windows.Forms.Label();
             this.label_alamat = new System.Windows.Forms.Label();
             this.richTextBox_alamat = new System.Windows.Forms.RichTextBox();
             this.button_simpan = new System.Windows.Forms.Button();
             this.button_batal = new System.Windows.Forms.Button();
             this.numericUpDown_terminal = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_Negara = new System.Windows.Forms.ComboBox();
+            this.bromoAirlines = new bromo.BromoAirlines();
+            this.negaraBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.negaraTableAdapter = new bromo.BromoAirlinesTableAdapters.NegaraTableAdapter();
+            this.bandaraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.BandaraGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bandaraBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlines)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesDataSetBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.negaraBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_terminal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.negaraBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bandaraBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label_master
@@ -94,39 +86,9 @@
             this.BandaraGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.BandaraGV.Location = new System.Drawing.Point(12, 94);
             this.BandaraGV.Name = "BandaraGV";
-            this.BandaraGV.Size = new System.Drawing.Size(792, 196);
+            this.BandaraGV.Size = new System.Drawing.Size(812, 196);
             this.BandaraGV.TabIndex = 2;
             this.BandaraGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BandaraGV_CellContentClick);
-            // 
-            // bandaraBindingSource
-            // 
-            this.bandaraBindingSource.DataMember = "Bandara";
-            this.bandaraBindingSource.DataSource = this.bromoAirlinesBindingSource;
-            // 
-            // bromoAirlinesBindingSource
-            // 
-            this.bromoAirlinesBindingSource.DataSource = this.bromoAirlines;
-            this.bromoAirlinesBindingSource.Position = 0;
-            // 
-            // bromoAirlines
-            // 
-            this.bromoAirlines.DataSetName = "BromoAirlines";
-            this.bromoAirlines.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bromoAirlinesDataSetBindingSource1
-            // 
-            this.bromoAirlinesDataSetBindingSource1.DataSource = this.bromoAirlinesDataSet;
-            this.bromoAirlinesDataSetBindingSource1.Position = 0;
-            // 
-            // bromoAirlinesDataSet
-            // 
-            this.bromoAirlinesDataSet.DataSetName = "BromoAirlinesDataSet";
-            this.bromoAirlinesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bromoAirlinesDataSetBindingSource
-            // 
-            this.bromoAirlinesDataSetBindingSource.DataSource = this.bromoAirlinesDataSet;
-            this.bromoAirlinesDataSetBindingSource.Position = 0;
             // 
             // bandaraTableAdapter
             // 
@@ -206,33 +168,12 @@
             this.textBox_kota.Size = new System.Drawing.Size(216, 22);
             this.textBox_kota.TabIndex = 9;
             // 
-            // comboBox_Negara
-            // 
-            this.comboBox_Negara.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox_Negara.DataSource = this.negaraBindingSource;
-            this.comboBox_Negara.DisplayMember = "Nama";
-            this.comboBox_Negara.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_Negara.FormattingEnabled = true;
-            this.comboBox_Negara.Location = new System.Drawing.Point(131, 430);
-            this.comboBox_Negara.Name = "comboBox_Negara";
-            this.comboBox_Negara.Size = new System.Drawing.Size(216, 24);
-            this.comboBox_Negara.TabIndex = 10;
-            // 
-            // negaraBindingSource
-            // 
-            this.negaraBindingSource.DataMember = "Negara";
-            this.negaraBindingSource.DataSource = this.bromoAirlinesBindingSource;
-            // 
-            // negaraTableAdapter
-            // 
-            this.negaraTableAdapter.ClearBeforeFill = true;
-            // 
             // label_terminal
             // 
             this.label_terminal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_terminal.AutoSize = true;
             this.label_terminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_terminal.Location = new System.Drawing.Point(395, 330);
+            this.label_terminal.Location = new System.Drawing.Point(415, 330);
             this.label_terminal.Name = "label_terminal";
             this.label_terminal.Size = new System.Drawing.Size(128, 20);
             this.label_terminal.TabIndex = 11;
@@ -243,7 +184,7 @@
             this.label_alamat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_alamat.AutoSize = true;
             this.label_alamat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_alamat.Location = new System.Drawing.Point(395, 361);
+            this.label_alamat.Location = new System.Drawing.Point(415, 361);
             this.label_alamat.Name = "label_alamat";
             this.label_alamat.Size = new System.Drawing.Size(63, 20);
             this.label_alamat.TabIndex = 12;
@@ -253,7 +194,7 @@
             // 
             this.richTextBox_alamat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox_alamat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox_alamat.Location = new System.Drawing.Point(464, 361);
+            this.richTextBox_alamat.Location = new System.Drawing.Point(484, 361);
             this.richTextBox_alamat.Name = "richTextBox_alamat";
             this.richTextBox_alamat.Size = new System.Drawing.Size(298, 85);
             this.richTextBox_alamat.TabIndex = 14;
@@ -263,28 +204,30 @@
             // 
             this.button_simpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_simpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_simpan.Location = new System.Drawing.Point(538, 500);
+            this.button_simpan.Location = new System.Drawing.Point(558, 500);
             this.button_simpan.Name = "button_simpan";
             this.button_simpan.Size = new System.Drawing.Size(109, 33);
             this.button_simpan.TabIndex = 15;
             this.button_simpan.Text = "Simpan";
             this.button_simpan.UseVisualStyleBackColor = true;
+            this.button_simpan.Click += new System.EventHandler(this.button_simpan_Click);
             // 
             // button_batal
             // 
             this.button_batal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_batal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_batal.Location = new System.Drawing.Point(653, 500);
+            this.button_batal.Location = new System.Drawing.Point(673, 500);
             this.button_batal.Name = "button_batal";
             this.button_batal.Size = new System.Drawing.Size(109, 33);
             this.button_batal.TabIndex = 16;
             this.button_batal.Text = "Batal";
             this.button_batal.UseVisualStyleBackColor = true;
+            this.button_batal.Click += new System.EventHandler(this.button_batal_Click);
             // 
             // numericUpDown_terminal
             // 
             this.numericUpDown_terminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown_terminal.Location = new System.Drawing.Point(521, 332);
+            this.numericUpDown_terminal.Location = new System.Drawing.Point(549, 328);
             this.numericUpDown_terminal.Minimum = new decimal(new int[] {
             1,
             0,
@@ -299,18 +242,52 @@
             0,
             0});
             // 
+            // comboBox_Negara
+            // 
+            this.comboBox_Negara.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox_Negara.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBox_Negara.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bandaraBindingSource, "NegaraID", true));
+            this.comboBox_Negara.DataSource = this.negaraBindingSource;
+            this.comboBox_Negara.DisplayMember = "Nama";
+            this.comboBox_Negara.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_Negara.FormattingEnabled = true;
+            this.comboBox_Negara.Location = new System.Drawing.Point(131, 434);
+            this.comboBox_Negara.Name = "comboBox_Negara";
+            this.comboBox_Negara.Size = new System.Drawing.Size(216, 24);
+            this.comboBox_Negara.TabIndex = 18;
+            this.comboBox_Negara.ValueMember = "ID";
+            // 
+            // bromoAirlines
+            // 
+            this.bromoAirlines.DataSetName = "BromoAirlines";
+            this.bromoAirlines.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // negaraBindingSource
+            // 
+            this.negaraBindingSource.DataMember = "Negara";
+            this.negaraBindingSource.DataSource = this.bromoAirlines;
+            // 
+            // negaraTableAdapter
+            // 
+            this.negaraTableAdapter.ClearBeforeFill = true;
+            // 
+            // bandaraBindingSource
+            // 
+            this.bandaraBindingSource.DataMember = "Bandara";
+            this.bandaraBindingSource.DataSource = this.bromoAirlines;
+            // 
             // MasterBandara
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 560);
+            this.ClientSize = new System.Drawing.Size(834, 560);
+            this.Controls.Add(this.comboBox_Negara);
             this.Controls.Add(this.numericUpDown_terminal);
             this.Controls.Add(this.button_batal);
             this.Controls.Add(this.button_simpan);
             this.Controls.Add(this.richTextBox_alamat);
             this.Controls.Add(this.label_alamat);
             this.Controls.Add(this.label_terminal);
-            this.Controls.Add(this.comboBox_Negara);
             this.Controls.Add(this.textBox_kota);
             this.Controls.Add(this.textBox_kodeIATA);
             this.Controls.Add(this.textBox_nama);
@@ -326,14 +303,10 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MasterBandara_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BandaraGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bandaraBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlines)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesDataSetBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlinesDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.negaraBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_terminal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.negaraBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bandaraBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,12 +317,6 @@
         private System.Windows.Forms.Label label_master;
         private System.Windows.Forms.Label label_informasi;
         private System.Windows.Forms.DataGridView BandaraGV;
-        private System.Windows.Forms.BindingSource bromoAirlinesDataSetBindingSource;
-        private BromoAirlinesDataSet bromoAirlinesDataSet;
-        private System.Windows.Forms.BindingSource bromoAirlinesDataSetBindingSource1;
-        private BromoAirlines bromoAirlines;
-        private System.Windows.Forms.BindingSource bromoAirlinesBindingSource;
-        private System.Windows.Forms.BindingSource bandaraBindingSource;
         private BromoAirlinesTableAdapters.BandaraTableAdapter bandaraTableAdapter;
         private System.Windows.Forms.Label label_nama;
         private System.Windows.Forms.Label label_kodeIATA;
@@ -358,14 +325,16 @@
         private System.Windows.Forms.TextBox textBox_nama;
         private System.Windows.Forms.TextBox textBox_kodeIATA;
         private System.Windows.Forms.TextBox textBox_kota;
-        private System.Windows.Forms.ComboBox comboBox_Negara;
-        private System.Windows.Forms.BindingSource negaraBindingSource;
-        private BromoAirlinesTableAdapters.NegaraTableAdapter negaraTableAdapter;
         private System.Windows.Forms.Label label_terminal;
         private System.Windows.Forms.Label label_alamat;
         private System.Windows.Forms.RichTextBox richTextBox_alamat;
         private System.Windows.Forms.Button button_simpan;
         private System.Windows.Forms.Button button_batal;
         private System.Windows.Forms.NumericUpDown numericUpDown_terminal;
+        private System.Windows.Forms.ComboBox comboBox_Negara;
+        private BromoAirlines bromoAirlines;
+        private System.Windows.Forms.BindingSource negaraBindingSource;
+        private BromoAirlinesTableAdapters.NegaraTableAdapter negaraTableAdapter;
+        private System.Windows.Forms.BindingSource bandaraBindingSource;
     }
 }

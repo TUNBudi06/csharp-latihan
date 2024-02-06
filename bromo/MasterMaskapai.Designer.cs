@@ -28,20 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.bromoAirlines = new bromo.BromoAirlines();
+            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlines)).BeginInit();
             this.SuspendLayout();
             // 
-            // Form1
+            // bromoAirlines
+            // 
+            this.bromoAirlines.DataSetName = "BromoAirlines";
+            this.bromoAirlines.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // MasterMaskapai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 560);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "MasterMaskapai";
             this.Text = "Form";
+            ((System.ComponentModel.ISupportInitialize)(this.bromoAirlines)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+        private BromoAirlines bromoAirlines;
     }
 }
