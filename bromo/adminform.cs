@@ -106,6 +106,7 @@ namespace bromo
             defaultButton();
             this.button_masterMaskapai.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\plane-take-off-selected-72.png");
             this.button_masterMaskapai.ForeColor = System.Drawing.Color.Black;
+            Form form = loadForm(new MasterMaskapai());
         }
 
         private void button_masterJadwalPenerbangan_Click(object sender, EventArgs e)

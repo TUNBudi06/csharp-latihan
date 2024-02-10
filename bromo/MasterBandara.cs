@@ -34,7 +34,7 @@ namespace bromo
 
                     string query = "SELECT b.ID, b.Nama, b.KodeIATA, b.Kota, n.Nama AS Negara, b.JumlahTerminal as 'Jumlah Terminal', b.Alamat " +
                    "FROM Bandara b " +
-                   "JOIN Negara n ON b.NegaraID = n.ID;";
+                   "JOIN Negara n ON b.NegaraID = n.ID order by b.Nama asc;";
 
                     SqlCommand cmd = sqls.CreateCommand();
 
@@ -210,6 +210,23 @@ namespace bromo
                     cmd.Parameters.AddWithValue("@nid", this.comboBox_Negara.SelectedValue);
                     cmd.Parameters.AddWithValue("@jt", this.numericUpDown_terminal.Value);
                     cmd.Parameters.AddWithValue("@alamat", this.richTextBox_alamat.Text);
+                    SqlCommand selectcmd = sqls.CreateCommand();
+                    
+                    selectcmd.CommandType = CommandType.Text;
+                    selectcmd.CommandText = "select count(*) from bandara where nama = @nama or KodeIATA = @iata";
+                    cmd.Parameters.AddWithValue("@iata", this.textBox_kodeIATA.Text);
+                    cmd.Parameters.AddWithValue("@nama",textBox_nama.Text);
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = selectcmd;
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    if( dt.Rows.Count > 0)
+                    {
+                        MessageBox.Show("Nama atau KodeIATA yang dimasukkan sudah digunakan","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        return;
+                    }
                     int result = cmd.ExecuteNonQuery();
                     if (result > 0)
                     {
