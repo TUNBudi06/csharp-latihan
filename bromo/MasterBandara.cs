@@ -214,8 +214,8 @@ namespace bromo
                     
                     selectcmd.CommandType = CommandType.Text;
                     selectcmd.CommandText = "select count(*) from bandara where nama = @nama or KodeIATA = @iata";
-                    cmd.Parameters.AddWithValue("@iata", this.textBox_kodeIATA.Text);
-                    cmd.Parameters.AddWithValue("@nama",textBox_nama.Text);
+                    selectcmd.Parameters.AddWithValue("@iata", this.textBox_kodeIATA.Text);
+                    selectcmd.Parameters.AddWithValue("@nama",this.textBox_nama.Text);
 
                     SqlDataAdapter da = new SqlDataAdapter();
                     da.SelectCommand = selectcmd;
