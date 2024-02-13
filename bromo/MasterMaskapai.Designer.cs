@@ -188,6 +188,7 @@
             this.button_simpan.TabIndex = 12;
             this.button_simpan.Text = "Simpan";
             this.button_simpan.UseVisualStyleBackColor = true;
+            this.button_simpan.Click += new System.EventHandler(this.button_simpan_Click);
             // 
             // MasterMaskapai
             // 
