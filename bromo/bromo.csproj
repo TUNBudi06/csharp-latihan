@@ -65,6 +65,12 @@
     <Compile Include="adminform.Designer.cs">
       <DependentUpon>adminform.cs</DependentUpon>
     </Compile>
+    <Compile Include="MasterJadwalPenerbangan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterJadwalPenerbangan.Designer.cs">
+      <DependentUpon>MasterJadwalPenerbangan.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterMaskapai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="adminform.resx">
       <DependentUpon>adminform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterJadwalPenerbangan.resx">
+      <DependentUpon>MasterJadwalPenerbangan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterMaskapai.resx">
       <DependentUpon>MasterMaskapai.cs</DependentUpon>

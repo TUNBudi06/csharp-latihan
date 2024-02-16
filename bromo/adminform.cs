@@ -114,6 +114,7 @@ namespace bromo
             defaultButton();
             this.button_masterJadwalPenerbangan.ForeColor = System.Drawing.Color.Black;
             this.button_masterJadwalPenerbangan.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\calendar-selected-72.png");
+            Form form = loadForm(new MasterJadwalPenerbangan());
         }
 
         private void button_MasterKodePromo_Click(object sender, EventArgs e)
