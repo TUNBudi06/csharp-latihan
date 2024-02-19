@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,6 +20,7 @@ namespace bromo
         }
         Utils conn = new Utils();
         private bool updateData = false;
+        private int id_user;
 
         public void loadDataBinding()
         {
@@ -97,12 +99,12 @@ namespace bromo
                 {
                     sqls.Open();
                     string query = "SELECT jp.ID AS ID, jp.KodePenerbangan as KodePenerbangan, bk.Nama AS BandaraKeberangkatan, bt.Nama AS BandaraTujuan, m.Nama AS Maskapai, jp.TanggalWaktuKeberangkatan AS TanggalWaktuKeberangkatan," +
-    " convert(nvarchar(2),jp.DurasiPenerbangan / 60) + ' Jam ' + convert(nvarchar(2),jp.DurasiPenerbangan % 60) + ' menit' AS DurasiPenerbangan," +
-    " jp.HargaPerTiket AS HargaPerTiket" +
-    " FROM JadwalPenerbangan AS jp" +
-    " JOIN Bandara AS bk ON jp.BandaraKeberangkatanID = bk.ID" +
-    " JOIN Bandara AS bt ON jp.BandaraTujuanID = bt.ID" +
-    " JOIN Maskapai AS m ON jp.MaskapaiID = m.ID order by TanggalWaktuKeberangkatan desc";
+                        " FORMAT(jp.DurasiPenerbangan / 60, '00') + ' Jam ' + FORMAT(jp.DurasiPenerbangan % 60, '00') + ' Menit' AS DurasiPenerbangan," +
+                        " jp.HargaPerTiket AS HargaPerTiket" +
+                        " FROM JadwalPenerbangan AS jp" +
+                        " JOIN Bandara AS bk ON jp.BandaraKeberangkatanID = bk.ID" +
+                        " JOIN Bandara AS bt ON jp.BandaraTujuanID = bt.ID" +
+                        " JOIN Maskapai AS m ON jp.MaskapaiID = m.ID order by TanggalWaktuKeberangkatan desc";
 
 
                     SqlCommand sqlc = sqls.CreateCommand();
@@ -115,7 +117,6 @@ namespace bromo
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
-                    this.dataGridView_mjp.Rows.Clear();
                     this.dataGridView_mjp.Columns.Clear();
                     this.dataGridView_mjp.DataSource = dt;
                     this.dataGridView_mjp.Columns["ID"].Visible = false;
@@ -147,52 +148,73 @@ namespace bromo
         private void MasterJadwalPenerbangan_Load(object sender, EventArgs e)
         {
             loadDataBinding();
-
             loadTable();
         }
 
-
         private void dataGridView_mjp_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex >= 0  && dataGridView_mjp.Columns[e.ColumnIndex].Name == "ubahData")
+            try
             {
-                updateData = true;
-                DataGridViewRow row = dataGridView_mjp.Rows[e.RowIndex];
-                masked_kode.Text = row.Cells["KodePenerbangan"].Value.ToString();
-                combo_dari.Text = row.Cells["BandaraKeberangkatan"].Value.ToString();
-                combo_ke.Text = row.Cells["BandaraTujuan"].Value.ToString();
-                combo_maskapai.Text = row.Cells["Maskapai"].Value.ToString();
-
-                DateTime dt = DateTime.Parse(row.Cells["TanggalWaktuKeberangkatan"].Value.ToString());
-                picker_tanggal.Value = dt;
-                masked_waktu.Text = dt.ToString("HH:mm");
-                numericUpDown_hargaPerTiket.Value = int.Parse(row.Cells["HargaPerTiket"].Value.ToString());
-            }
-            if (e.ColumnIndex >= 0 && dataGridView_mjp.Columns[e.ColumnIndex].Name == "hapusData")
-            {
-                DataGridViewRow row = dataGridView_mjp.Rows[e.RowIndex];
-                using(SqlConnection sqls = conn.koneksi())
+                if (e.ColumnIndex >= 0 && dataGridView_mjp.Columns[e.ColumnIndex].Name == "ubahData")
                 {
-                    try
-                    {
-                        sqls.Open();
-                        SqlCommand sqlc = sqls.CreateCommand();
-                        sqlc.CommandType = CommandType.Text;
-                        sqlc.CommandText = "delete from JadwalPenerbangan where ID = @id;";
-                        sqlc.Parameters.AddWithValue("@id", row.Cells["ID"].Value.ToString());
-                    } catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.ToString());
+                    updateData = true;
+                    DataGridViewRow row = dataGridView_mjp.Rows[e.RowIndex];
+                    masked_kode.Text = row.Cells["KodePenerbangan"].Value.ToString();
+                    combo_dari.Text = row.Cells["BandaraKeberangkatan"].Value.ToString();
+                    combo_ke.Text = row.Cells["BandaraTujuan"].Value.ToString();
+                    combo_maskapai.Text = row.Cells["Maskapai"].Value.ToString();
 
-                    } finally
+                    DateTime dt = DateTime.Parse(row.Cells["TanggalWaktuKeberangkatan"].Value.ToString());
+                    picker_tanggal.Value = dt;
+                    masked_waktu.Text = $"{dt.ToString("HH"):D2}:{dt.ToString("mm"):D2}";
+                    masked_durasi.Text = row.Cells["DurasiPenerbangan"].Value.ToString();
+                    id_user = int.Parse(row.Cells["ID"].Value.ToString());
+
+                    numericUpDown_hargaPerTiket.Value = int.Parse(row.Cells["HargaPerTiket"].Value.ToString());
+                }
+                if (e.ColumnIndex >= 0 && dataGridView_mjp.Columns[e.ColumnIndex].Name == "hapusData")
+                {
+                    DataGridViewRow row = dataGridView_mjp.Rows[e.RowIndex];
+                    using (SqlConnection sqls = conn.koneksi())
                     {
-                        sqls.Close();
+                        try
+                        {
+                            sqls.Open();
+                            SqlCommand sqlc = sqls.CreateCommand();
+                            sqlc.CommandType = CommandType.Text;
+                            sqlc.CommandText = "delete from JadwalPenerbangan where ID = @id;";
+                            sqlc.Parameters.AddWithValue("@id", row.Cells["ID"].Value.ToString());
+                            if (MessageBox.Show("apakah kamu mau menghapus barisan ini?","Question",MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.OK)
+                            {
+                                int result = sqlc.ExecuteNonQuery();
+                                if (result > 0)
+                                {
+                                    MessageBox.Show("successfully delete data", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("no data deleted", "failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.ToString());
+
+                        }
+                        finally
+                        {
+                            sqls.Close();
+                        }
                     }
                 }
+            } finally
+            {
+                loadTable();
             }
         }
 
-        private void button_batal_Click(object sender, EventArgs e)
+        private void batal()
         {
             updateData = false;
             masked_kode.Clear();
@@ -201,7 +223,139 @@ namespace bromo
             combo_maskapai.SelectedText = "Adam Air";
             picker_tanggal.Value = DateTime.Now;
             masked_waktu.Clear();
+            masked_durasi.Clear();
             numericUpDown_hargaPerTiket.Value = 1;
+        }
+
+        private void button_batal_Click(object sender, EventArgs e)
+        {
+            batal();
+        }
+
+        private void button_simpan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (updateData)
+                {
+                    string kp = masked_kode.Text;
+                    string dari = combo_dari.SelectedValue.ToString();
+                    string ke = combo_ke.SelectedValue.ToString();
+                    string maskapai = combo_maskapai.SelectedValue.ToString();
+                    string tanggal = picker_tanggal.Value.ToString("MM/dd/yyyy") + " " + masked_waktu.Text;
+                    string[] durasiParts = masked_durasi.Text.Split(' ');
+                    int validDurasi = (int.Parse(durasiParts[0]) * 60) + int.Parse(durasiParts[2]);
+                    if ( validDurasi >= 1439)
+                    {
+                        MessageBox.Show("durasi penerbangan tidak valid", "validation failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    string menitDurasi = string.Concat((int.Parse(durasiParts[0]) * 60) + int.Parse(durasiParts[2]));
+                    string hpt = numericUpDown_hargaPerTiket.Value.ToString();
+
+                    using (SqlConnection sqls = conn.koneksi())
+                    {
+                        try
+                        {
+                            sqls.Open();
+
+                            using (SqlCommand sqlc = sqls.CreateCommand())
+                            {
+                                sqlc.CommandType = CommandType.Text;
+                                sqlc.CommandText = "update JadwalPenerbangan set KodePenerbangan = @kp,BandaraKeberangkatanID = @bk,BandaraTujuanID = @bt,MaskapaiID = @maskapai,TanggalWaktuKeberangkatan = @twk, DurasiPenerbangan =  @durasi," +
+                                     " HargaPerTiket = @hpt where ID = @id;";
+                                sqlc.Parameters.AddWithValue("@kp", kp);
+                                sqlc.Parameters.AddWithValue("@bk", dari);
+                                sqlc.Parameters.AddWithValue("@bt", ke);
+                                sqlc.Parameters.AddWithValue("@maskapai", maskapai);
+                                sqlc.Parameters.AddWithValue("@twk", tanggal);
+                                sqlc.Parameters.AddWithValue("@durasi", menitDurasi);
+                                sqlc.Parameters.AddWithValue("@hpt", hpt);
+                                sqlc.Parameters.AddWithValue("@id", id_user);
+
+                                if (dari == ke)
+                                {
+                                    MessageBox.Show("bandara keberangkatan dan tujuan tidak boleh sama","Error",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                    return;
+                                }
+                                int result = sqlc.ExecuteNonQuery();
+                                if (result > 0)
+                                {
+                                    MessageBox.Show("successfully update data", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                } else
+                                {
+                                    MessageBox.Show("cannot update data", "failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error: " + ex);
+                        }
+                        finally
+                        {
+                            sqls.Close();
+                        }
+                    }
+                    Console.WriteLine(menitDurasi);
+                }
+                else
+                {
+                    using(SqlConnection sqls = conn.koneksi())
+                    {
+                        string kp = masked_kode.Text;
+                        string dari = combo_dari.SelectedValue.ToString();
+                        string ke = combo_ke.SelectedValue.ToString();
+                        string maskapai = combo_maskapai.SelectedValue.ToString();
+                        string tanggal = picker_tanggal.Value.ToString("MM/dd/yyyy") + " " + masked_waktu.Text;
+                        string[] durasiParts = masked_durasi.Text.Split(' ');
+                        int validDurasi = (int.Parse(durasiParts[0]) * 60) + int.Parse(durasiParts[2]);
+                        if (validDurasi >= 1439)
+                        {
+                            MessageBox.Show("durasi penerbangan tidak valid", "validation failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                        string menitDurasi = string.Concat((int.Parse(durasiParts[0]) * 60) + int.Parse(durasiParts[2]));
+                        string hpt = numericUpDown_hargaPerTiket.Value.ToString();
+                        try
+                        {
+                            sqls.Open();
+                            SqlCommand sqlc = sqls.CreateCommand();
+                            sqlc.CommandType = CommandType.Text;
+                            sqlc.CommandText = "insert into JadwalPenerbangan (KodePenerbangan,BandaraKeberangkatanID,BandaraTujuanID,MaskapaiID,TanggalWaktuKeberangkatan,DurasiPenerbangan,HargaPerTiket) " +
+                                "values (@kp,@bk,@bt,@maskapai,@twk,@durasi,@hpt)";
+                            sqlc.Parameters.AddWithValue("@kp", kp);
+                            sqlc.Parameters.AddWithValue("@bk", dari);
+                            sqlc.Parameters.AddWithValue("@bt", ke);
+                            sqlc.Parameters.AddWithValue("@maskapai", maskapai);
+                            sqlc.Parameters.AddWithValue("@twk", tanggal);
+                            sqlc.Parameters.AddWithValue("@durasi", menitDurasi);
+                            sqlc.Parameters.AddWithValue("@hpt", hpt);
+
+                            int result = sqlc.ExecuteNonQuery();
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Successfully added data", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            } else
+                            {
+                                MessageBox.Show("failed to add data", "failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        finally
+                        {
+                            sqls.Close();
+                        }
+                    }
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex);
+            }
+            finally
+            {
+                loadTable();
+                batal();
+            }
         }
     }
 }

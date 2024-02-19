@@ -176,6 +176,7 @@
             // masked_kode
             // 
             this.masked_kode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.masked_kode.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.masked_kode.Location = new System.Drawing.Point(176, 346);
             this.masked_kode.Mask = "AA-0000";
             this.masked_kode.Name = "masked_kode";
@@ -240,6 +241,7 @@
             this.masked_durasi.Name = "masked_durasi";
             this.masked_durasi.Size = new System.Drawing.Size(200, 20);
             this.masked_durasi.TabIndex = 20;
+            this.masked_durasi.ValidatingType = typeof(System.DateTime);
             // 
             // button_batal
             // 
@@ -261,6 +263,7 @@
             this.button_simpan.TabIndex = 23;
             this.button_simpan.Text = "Simpan";
             this.button_simpan.UseVisualStyleBackColor = true;
+            this.button_simpan.Click += new System.EventHandler(this.button_simpan_Click);
             // 
             // numericUpDown_hargaPerTiket
             // 
@@ -286,7 +289,7 @@
             this.numericUpDown_hargaPerTiket.TabIndex = 24;
             this.numericUpDown_hargaPerTiket.ThousandsSeparator = true;
             this.numericUpDown_hargaPerTiket.Value = new decimal(new int[] {
-            1000,
+            1,
             0,
             0,
             0});
