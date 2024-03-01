@@ -131,7 +131,7 @@
             // 
             // label_tanggal
             // 
-            this.label_tanggal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_tanggal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_tanggal.AutoSize = true;
             this.label_tanggal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_tanggal.Location = new System.Drawing.Point(419, 345);
@@ -142,7 +142,7 @@
             // 
             // label_WaktuKeberangkatan
             // 
-            this.label_WaktuKeberangkatan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_WaktuKeberangkatan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_WaktuKeberangkatan.AutoSize = true;
             this.label_WaktuKeberangkatan.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_WaktuKeberangkatan.Location = new System.Drawing.Point(419, 382);
@@ -153,7 +153,7 @@
             // 
             // label_DurasiPenerbangan
             // 
-            this.label_DurasiPenerbangan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_DurasiPenerbangan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_DurasiPenerbangan.AutoSize = true;
             this.label_DurasiPenerbangan.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_DurasiPenerbangan.Location = new System.Drawing.Point(419, 414);
@@ -164,7 +164,7 @@
             // 
             // label_HargaPerTiket
             // 
-            this.label_HargaPerTiket.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_HargaPerTiket.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_HargaPerTiket.AutoSize = true;
             this.label_HargaPerTiket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_HargaPerTiket.Location = new System.Drawing.Point(419, 448);
@@ -186,7 +186,6 @@
             // combo_ke
             // 
             this.combo_ke.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.combo_ke.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_ke.FormattingEnabled = true;
             this.combo_ke.Location = new System.Drawing.Point(176, 411);
             this.combo_ke.Name = "combo_ke";

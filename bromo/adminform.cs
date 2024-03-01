@@ -122,6 +122,7 @@ namespace bromo
             defaultButton();
             this.button_MasterKodePromo.ForeColor = System.Drawing.Color.Black;
             this.button_MasterKodePromo.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\purchase-tag-alt-selected-72.png");
+            this.loadForm(new MasterKodePromo());
         }
 
         private void button_UbahStatusPenerbangan_Click(object sender, EventArgs e)

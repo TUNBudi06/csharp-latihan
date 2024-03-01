@@ -287,5 +287,10 @@ namespace bromo
 
             }
         }
+
+        private void textBox_nama_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
