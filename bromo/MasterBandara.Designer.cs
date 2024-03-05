@@ -148,7 +148,7 @@
             this.textBox_nama.Location = new System.Drawing.Point(131, 328);
             this.textBox_nama.Name = "textBox_nama";
             this.textBox_nama.Size = new System.Drawing.Size(216, 22);
-            this.textBox_nama.TabIndex = 7;;
+            this.textBox_nama.TabIndex = 7;
             // 
             // textBox_kodeIATA
             // 

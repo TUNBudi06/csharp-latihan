@@ -65,6 +65,12 @@
     <Compile Include="adminform.Designer.cs">
       <DependentUpon>adminform.cs</DependentUpon>
     </Compile>
+    <Compile Include="UbahStatusPenerbangan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UbahStatusPenerbangan.Designer.cs">
+      <DependentUpon>UbahStatusPenerbangan.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterKodePromo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UbahStatusPenerbangan.resx">
+      <DependentUpon>UbahStatusPenerbangan.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="BromoAirlines.xsc">
       <DependentUpon>BromoAirlines.xsd</DependentUpon>

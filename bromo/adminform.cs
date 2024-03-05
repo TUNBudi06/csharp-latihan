@@ -130,6 +130,7 @@ namespace bromo
             defaultButton();
             this.button_UbahStatusPenerbangan.ForeColor = System.Drawing.Color.Black;
             this.button_UbahStatusPenerbangan.Image = Image.FromFile("C:\\Users\\Msi-PC\\source\\repos\\csharp-latihan\\bromo\\Icons\\notepad-selected-72.png");
+            loadForm(new UbahStatusPenerbangan());
         }
 
         private void adminform_FormClosing(object sender, FormClosingEventArgs e)

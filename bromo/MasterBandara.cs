@@ -48,7 +48,7 @@ namespace bromo
                     DataTable dt = new DataTable();
                     data.Fill(dt);
 
-                    
+
                     this.BandaraGV.DataSource = dt;
                     this.BandaraGV.AllowUserToAddRows = false;
                     this.BandaraGV.Columns["ID"].Visible = false;
@@ -75,6 +75,12 @@ namespace bromo
                     sqls.Close();
                 }
             }
+        }
+        
+        private void callform()
+        {
+            MasterBandara mb = new MasterBandara();
+            mb.Show();
         }
 
         private void MasterBandara_Load(object sender, EventArgs e)
@@ -243,6 +249,7 @@ namespace bromo
                 finally
                 {
                     sqls.Close();
+                    
                 }
             } else
             {
